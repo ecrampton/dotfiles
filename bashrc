@@ -124,8 +124,10 @@ function add_software {
 
 add_software bullseye
 add_software conky
-add_software dmenu
 add_software git
 add_software herbstluftwm
 add_software tmux
 
+if [ -d $HOME/software/dmenu ]; then
+    export PATH=$PATH:$HOME/software/dmenu
+fi
