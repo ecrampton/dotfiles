@@ -33,10 +33,15 @@ function ensure_symlink {
 
 function setup_basic_symlinks {
     cd $HOME
-    ensure_symlink dotfiles/bashrc    .bashrc
-    ensure_symlink dotfiles/emacs     .emacs
-    ensure_symlink dotfiles/Xdefaults .Xdefaults
-    
+    ensure_symlink dotfiles/bashrc               .bashrc
+    ensure_symlink dotfiles/emacs                .emacs
+    ensure_symlink dotfiles/Xdefaults            .Xdefaults
+    ensure_symlink dotfiles/xinitrc-herbstluftwm .xinitrc
+
+    if [ "$HOSTNAME" = "esclin3" ]; then
+        ensure_symlink dotfiles/synergy.conf-esclin3 .synergy.conf
+    fi
+
     if [ ! -d ".config/herbstluftwm" ]; then
         mkdir -p .config/herbstluftwm
     fi
