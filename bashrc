@@ -74,6 +74,9 @@ esac
 
 export LESS="-erX"
 
+# Some Linuxes I use set SSH_ASKPASS=x11-ssh-askpass. No thanks.
+unset SSH_ASKPASS
+
 # ----------------------------------------------------------------------
 # Simple shell functions.
 
