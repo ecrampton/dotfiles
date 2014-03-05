@@ -1,0 +1,20 @@
+# -*- sh -*-
+
+# Xdefaults settings.
+xrdb -merge $HOME/.Xdefaults
+
+# Add local fonts.
+xset fp+ $HOME/software/terminus-font
+xset fp rehash
+
+# No beeping, thanks.
+xset b 0
+
+# Disable caps lock.
+xmodmap -e "remove lock = Caps_Lock"
+
+# Make CAPS LOCK = Control.
+xmodmap -e "keysym Caps_Lock = Control_L"
+xmodmap -e "add Control = Control_L"
+
+exec $HOME/software/herbstluftwm/bin/herbstluftwm
