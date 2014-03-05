@@ -8,8 +8,25 @@ hc() {
 
 hc emit_hook reload
 
+# Xdefaults settings.
+xrdb -merge $HOME/.Xdefaults
+
+# Add local fonts.
+xset fp+ $HOME/software/terminus-font
+xset fp rehash
+
+# No beeping, thanks.
+xset b 0
+
+# Disable caps lock.
+xmodmap -e "remove lock = Caps_Lock"
+
+# Make CAPS LOCK = Control.
+xmodmap -e "keysym Caps_Lock = Control_L"
+xmodmap -e "add Control = Control_L"
+
+# Background color.
 xsetroot -solid '#333333'
-#'#5A8E3A'
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -62,6 +79,9 @@ hc keybind $Mod-Control-Left    resize left +$resizestep
 hc keybind $Mod-Control-Down    resize down +$resizestep
 hc keybind $Mod-Control-Up      resize up +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
+
+# launch programs
+hc keybind $Mod-Control-p spawn dmenu_run -fn -*-terminus-medium-*-*-*-12-*-*-*-*-*-* -nb rgb:00/00/00 -nf rgb:CC/CC/CC -sb rgb:CC/CC/CC -sf rgb:33/33/33
 
 # tags
 tag_names=( {1..9} )

@@ -100,8 +100,7 @@ function setup_terminus_font {
     
     # Symlink.
     ln -s terminus-font-${TERMINUS_VERSION} terminus-font
-    cd terminus
-    make && mkfontdir
+    cd terminus-font && make && mkfontdir
 
     # Cleanup.
     cd ..

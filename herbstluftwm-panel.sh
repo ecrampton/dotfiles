@@ -28,6 +28,7 @@ else
     echo "This script requires the textwidth tool of the dzen2 project."
     exit 1
 fi
+
 ####
 # true if we are using the svn version of dzen2
 # depending on version/distribution, this seems to have version strings like
