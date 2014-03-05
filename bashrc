@@ -66,6 +66,14 @@ xterm*|rxvt*)
     ;;
 esac
 
+# Less options:
+#
+# -e: quit at EOF
+# -r: raw control characters (makes git diff work)
+# -X: disables sending termcap init/deinit strings
+
+export LESS="-erX"
+
 # ----------------------------------------------------------------------
 # Simple shell functions.
 
