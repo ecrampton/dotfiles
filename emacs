@@ -238,7 +238,7 @@
 (mapc (lambda (mode)
         (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
                   (lambda () (setq show-trailing-whitespace t))))
-      '(emacs-lisp c++ python shell))
+      '(emacs-lisp python shell))
 
 ;; ----------------------------------------------------------------------
 ;; KEYBINDINGS
