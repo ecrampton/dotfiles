@@ -1,0 +1,61 @@
+use_xft yes
+xftfont profont:size=8
+override_utf8_locale yes
+ 
+update_interval 1
+total_run_times 0
+ 
+own_window yes
+own_window_type panel
+own_window_hints undecorated,sticky,skip_taskbar,skip_pager
+ 
+border_inner_margin 0
+border_outer_margin 0
+draw_borders no
+draw_graph_borders no
+ 
+background no
+ 
+# Eliminate flickering
+double_buffer yes 
+minimum_size 2010 23
+maximum_width 2010
+ 
+# Use KiB/MiB/... instead of just bytes
+format_human_readable yes
+# Print used memory with buffers
+no_buffers no
+# Display k, G, ... instead of kiB, GiB, ...
+short_units yes
+ 
+default_color d0d0d0
+own_window_colour 1c1c1c
+ 
+use_spacer left
+if_up_strictness address
+pad_percents 2
+ 
+alignment top_left
+gap_x 400
+gap_y 0
+ 
+default_graph_size 8 30
+color0 888888
+color1 228b22
+
+TEXT
+${voffset 6}${color1}cpu 1 ${color0}${cpubar cpu1 8,40} ${cpu cpu1}%\
+${goto 115}${color1}cpu 2 ${color0}${cpubar cpu2 8,40} ${cpu cpu2}%\
+${goto 230}${color1}cpu 3 ${color0}${cpubar cpu3 8,40} ${cpu cpu3}%\
+${goto 345}${color1}cpu 4 ${color0}${cpubar cpu4 8,40} ${cpu cpu4}%\
+${goto 460}${color1}cpu 5 ${color0}${cpubar cpu5 8,40} ${cpu cpu5}%\
+${goto 575}${color1}cpu 6 ${color0}${cpubar cpu6 8,40} ${cpu cpu6}%\
+${goto 690}${color1}cpu 7 ${color0}${cpubar cpu7 8,40} ${cpu cpu7}%\
+${goto 805}${color1}cpu 8 ${color0}${cpubar cpu8 8,40} ${cpu cpu8}%\
+${goto 925}${color1}free: ${color0}${memeasyfree}\
+${goto 1005}${color1}used: ${color0}${mem} (${memperc}%)\
+${goto 1125}${color1}swap: ${color0}${swapperc}%\
+${goto 1205}${color1}processes/threads: ${color0}${processes} /${threads}\
+${goto 1395}${color1}net: down: ${color0}${downspeed em1} ${color1} up: ${color0}${upspeed em1}\
+${goto 1575}${color1}load ${color0}${loadavg 1}, ${loadavg 2}, ${loadavg 3}\
+${goto 1885}${color1}uptime: ${color0}${uptime}\

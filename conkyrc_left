@@ -1,0 +1,110 @@
+use_xft yes
+xftfont profont:size=8
+override_utf8_locale yes
+ 
+update_interval 1
+total_run_times 0
+ 
+own_window yes
+own_window_type panel
+own_window_hints undecorated,sticky,skip_taskbar,skip_pager
+ 
+border_inner_margin 0
+border_outer_margin 0
+draw_borders no
+draw_graph_borders yes
+ 
+background no
+ 
+# Eliminate flickering
+double_buffer yes 
+minimum_size 140 1560
+maximum_width 140
+ 
+# Use KiB/MiB/... instead of just bytes
+format_human_readable yes
+# Print used memory with buffers
+no_buffers no
+# Display k, G, ... instead of kiB, GiB, ...
+short_units yes
+ 
+default_color d0d0d0
+own_window_colour 1c1c1c
+ 
+use_spacer left
+if_up_strictness address
+pad_percents 2
+ 
+alignment top_left
+gap_x 0
+gap_y 24
+ 
+default_graph_size 8 30
+color0 888888
+color1 228b22
+color2 003300
+
+TEXT
+${color1}cpu (all) ${alignr}${color0}${cpu cpu0}%
+${cpugraph cpu0 40,135 003300 228b22 -t}
+${color1}cpu 1 ${goto 45}${color0}${cpubar cpu1 8,90}
+${color1}cpu 2 ${goto 45}${color0}${cpubar cpu2 8,90}
+${color1}cpu 3 ${goto 45}${color0}${cpubar cpu3 8,90}
+${color1}cpu 4 ${goto 45}${color0}${cpubar cpu4 8,90}
+${color1}cpu 5 ${goto 45}${color0}${cpubar cpu5 8,90}
+${color1}cpu 6 ${goto 45}${color0}${cpubar cpu6 8,90}
+${color1}cpu 7 ${goto 45}${color0}${cpubar cpu7 8,90}
+${color1}cpu 8 ${goto 45}${color0}${cpubar cpu8 8,90}
+${color1}load${alignr}${color0}${loadavg 1}, ${loadavg 2}, ${loadavg 3}
+${loadgraph 40,135 003300 228b22 -l -t}
+${stippled_hr}
+${color1}mem${alignr}${color0}${mem}
+${memgraph 40,135 003300 228b22 -t}
+${stippled_hr}
+${color1}diskio read ${alignr}${color0}${diskio_read}
+${diskiograph_read 40,135 003300 228b22 -t}
+${color1}diskio write ${alignr}${color0}${diskio_write}
+${diskiograph_write 40,135 003300 228b22 -t}
+${color1}mount ${goto 50}used ${goto 100}free
+${color0}/     ${goto 50}${fs_used /}          ${goto 100}${fs_free /}
+${color0}/home ${goto 50}${fs_used /home}      ${goto 100}${fs_free /home}
+${color0}data1 ${goto 50}${fs_used /mnt/data1} ${goto 100}${fs_free /mnt/data1}
+${color0}data1 ${goto 50}${fs_used /mnt/data1} ${goto 100}${fs_free /mnt/data1}
+${color0}data3 ${goto 50}${fs_used /mnt/data3} ${goto 100}${fs_free /mnt/data3}
+${color0}data5 ${goto 50}${fs_used /mnt/data5} ${goto 100}${fs_free /mnt/data5}
+${stippled_hr}
+${color1}net down rate${alignr}${color0}${downspeed}
+${color1}net down total${alignr}${color0}${totaldown em1}
+${downspeedgraph em1 40,135 003300 228b22 -t}
+${color1}net up rate${alignr}${color0}${upspeed}
+${color1}net up total${alignr}${color0}${totalup em1}
+${upspeedgraph em1 40,135 003300 228b22 -t}
+${stippled_hr}
+${color1}top cpu
+${color ffffff}${top name 1}${alignr}${top cpu 1}
+${color0}${top name 2}${alignr}${top cpu 2}
+${top name 3}${alignr}${top cpu 3}
+${top name 4}${alignr}${top cpu 4}
+${top name 5}${alignr}${top cpu 5}
+${top name 6}${alignr}${top cpu 6}
+${top name 7}${alignr}${top cpu 7}
+${top name 8}${alignr}${top cpu 8}
+${top name 9}${alignr}${top cpu 9}
+${top name 10}${alignr}${top cpu 10}
+${stippled_hr}
+${color1}top mem
+${color ffffff}${top_mem name 1}${alignr}${top_mem mem_res 1}
+${color0}${top_mem name 2}${alignr}${top_mem mem_res 2}
+${top_mem name 3}${alignr}${top_mem mem_res 3}
+${top_mem name 4}${alignr}${top_mem mem_res 4}
+${top_mem name 5}${alignr}${top_mem mem_res 5}
+${top_mem name 6}${alignr}${top_mem mem_res 6}
+${top_mem name 7}${alignr}${top_mem mem_res 7}
+${top_mem name 8}${alignr}${top_mem mem_res 8}
+${top_mem name 9}${alignr}${top_mem mem_res 9}
+${top_mem name 10}${alignr}${top_mem mem_res 10}
+${stippled_hr}
+${if_updatenr 1}one$endif\
+${if_updatenr 2}two$endif\
+${if_updatenr 3}three$endif\
+${if_updatenr 4}$endif\
