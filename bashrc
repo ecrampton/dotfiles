@@ -138,7 +138,15 @@ add_software conky
 add_software git
 add_software herbstluftwm
 add_software tmux
+add_software apache-maven
+
+export M2_HOME=$HOME/software/apache-maven
 
 if [ -d $HOME/software/dmenu ]; then
     export PATH=$PATH:$HOME/software/dmenu
+fi
+
+if [ -d /usr/java/latest ]; then
+    export JAVA_HOME=/usr/java/latest
+    export PATH=$JAVA_HOME/bin:$PATH
 fi
