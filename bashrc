@@ -139,6 +139,8 @@ add_software git
 add_software herbstluftwm
 add_software tmux
 add_software apache-maven
+add_software sbt
+add_software scala
 
 export M2_HOME=$HOME/software/apache-maven
 
