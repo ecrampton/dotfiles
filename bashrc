@@ -98,8 +98,10 @@ if [ "$HOSTNAME" == "esclin3" ]; then
     export ECN_CONNECT_UPSTREAM=1
     export MQSERIES_HOME=/opt/mqm
     export ECN_ENVIRONMENT=ecrampton_bzx
-    export DISTCC_HOSTS="ltb7/4 ltb8/4 localhost/6"
-    export PATH=/opt/distcc/masq:/opt/distcc/bin:$PATH
+    #export DISTCC_HOSTS="ltb7/4 ltb8/4 localhost/6"
+    #export PATH=/opt/distcc/masq:/opt/distcc/bin:$PATH
+    export USE_SCHEDULER=ltb7
+    export PATH=/opt/icecream/bin:/opt/distcc/bin:$PATH
     export ECN_ROOT=/opt/ecn/users/$ECN_ENVIRONMENT
     export ECN_USE_GET_PARAM=True
     export LD_LIBRARY_PATH=$ECN_ROOT/bin:$MQSERIES_HOME/lib64:/opt/boost/lib:/opt/tsa/lib:$LD_LIBRARY_PATH

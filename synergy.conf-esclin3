@@ -1,25 +1,34 @@
 # section: screens
-#   escwin7:
+#   lxwd-ecra1:
 #   esclin3:
 # end
 # 
 # section: links
-#   escwin7:
+#   lxwd-ecra1:
 #     down = esclin3
 #   esclin3:
-#     up = escwin7
+#     up = lxwd-ecra1
 # end
 
 section: screens
-  escwin7:
+  lxwd-ecra1:
   esclin3:
 end
 
+#section: links
+#  esclin3:
+#    left = lxwd-ecra1
+#    right = lxwd-ecra1
+#  lxwd-ecra1:
+#    right = esclin3
+#    left = esclin3
+#end
+
 section: links
   esclin3:
-    left = escwin7
-    right = escwin7
-  escwin7:
-    right = esclin3
+    left = lxwd-ecra1
+    right = lxwd-ecra1
+  lxwd-ecra1:
     left = esclin3
+    right = esclin3
 end

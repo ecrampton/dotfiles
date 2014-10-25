@@ -1,3 +1,6 @@
 # -*- sh -*-
 
+# 10 minute blank
+xset s 600 600
+
 exec herbstluftwm

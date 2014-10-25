@@ -1,0 +1,121 @@
+# --------------------------------------------------------------------------------
+# Screen cheat sheet:
+#
+# Window list: C-t "
+# Previous: C-t p
+# Next: C-t n
+# Switch to last window displayed: C-t C-t
+#
+# Detach: C-t d
+#
+# Go into command mode: C-t :
+#
+# Split into two: C-t S
+# Resize: C-t : resize -10
+#         C-t : resize +20
+#         C-t : resize max
+# Switch to next region: C-t [tab]
+# Kill current region: C-t x
+#
+# Kill all windows and terminate: C-t C-\
+# Kill current windows: C-t k
+# Kill 
+#
+# Enter copy/scrollback mode: C-t [
+# Movement: vi keys
+# Movement by word: w (forward), b (backward)
+# Start mark: [spacebar]
+# End mark: [enter]
+# Paste: C-t ]
+# --------------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------------------------------
+# Miscellaneous setup
+
+caption always "%{= Kg}%H: %-w%{+b KG}[%n %t]%{= Kg}%+w%=%c | %Y-%m-%d | %l | %f" 
+windowlist title "Num Name%=Flags"
+windowlist string "%{r}%3n %{B}%t%=%{M}%f"
+shell /bin/bash
+defhstatus "SCREEN: ^En^Ef ^Et"
+activity "Activity in window %n [%t] (%C:%s%a)"
+nethack off
+defscrollback 10000
+escape ^Tt
+startup_message off
+
+# ----------------------------------------------------------------------------------------------------
+# ssh to hosts in enclosure 1
+# a = 10, b = 11, c = 12, d = 13, e = 14, f = 15, g = 16
+# B = d1b3 as ecrampton for doing builds
+
+bind -c sshenc1 1 screen -t ssh/d1b1     ssh mtfuser@d1b1
+bind -c sshenc1 2 screen -t ssh/d1b2     ssh mtfuser@d1b2
+bind -c sshenc1 3 screen -t ssh/d1b3     ssh mtfuser@d1b3
+bind -c sshenc1 4 screen -t ssh/d1b4     ssh mtfuser@d1b4
+bind -c sshenc1 6 screen -t ssh/d1b6     ssh mtfuser@d1b6
+bind -c sshenc1 7 screen -t ssh/d1b7     ssh mtfuser@d1b7
+bind -c sshenc1 8 screen -t ssh/d1b8     ssh mtfuser@d1b8
+bind -c sshenc1 9 screen -t ssh/d1b9     ssh mtfuser@d1b9
+bind -c sshenc1 a screen -t ssh/d1b10    ssh mtfuser@d1b10
+bind -c sshenc1 b screen -t ssh/d1b11    ssh mtfuser@d1b11
+bind -c sshenc1 c screen -t ssh/d1b12    ssh mtfuser@d1b12
+bind -c sshenc1 d screen -t ssh/d1b13    ssh mtfuser@d1b13
+bind -c sshenc1 e screen -t ssh/d1b14    ssh mtfuser@d1b14
+bind -c sshenc1 f screen -t ssh/d1b15    ssh mtfuser@d1b15
+bind -c sshenc1 g screen -t ssh/d1b16    ssh mtfuser@d1b16
+bind -c sshenc1 B screen -t ssh/d1b3(b)  ssh ecrampton@d1b3
+bind "1" command -c sshenc1
+
+# ----------------------------------------------------------------------------------------------------
+# ssh to hosts in enclosure 2
+
+bind -c sshenc2 1 screen -t ssh/d2b1  ssh mtfuser@d2b1
+bind -c sshenc2 2 screen -t ssh/d2b2  ssh mtfuser@d2b2
+bind -c sshenc2 3 screen -t ssh/d2b3  ssh mtfuser@d2b3
+bind -c sshenc2 4 screen -t ssh/d2b4  ssh mtfuser@d2b4
+bind -c sshenc2 6 screen -t ssh/d2b6  ssh mtfuser@d2b6
+bind -c sshenc2 7 screen -t ssh/d2b7  ssh mtfuser@d2b7
+bind -c sshenc2 8 screen -t ssh/d2b8  ssh mtfuser@d2b8
+bind -c sshenc2 9 screen -t ssh/d2b9  ssh mtfuser@d2b9
+bind -c sshenc2 a screen -t ssh/d2b10 ssh mtfuser@d2b10
+bind -c sshenc2 b screen -t ssh/d2b11 ssh mtfuser@d2b11
+bind -c sshenc2 c screen -t ssh/d2b12 ssh mtfuser@d2b12
+bind -c sshenc2 d screen -t ssh/d2b13 ssh mtfuser@d2b13
+bind -c sshenc2 e screen -t ssh/d2b14 ssh mtfuser@d2b14
+bind -c sshenc2 f screen -t ssh/d2b15 ssh mtfuser@d2b15
+bind -c sshenc2 g screen -t ssh/d2b16 ssh mtfuser@d2b16
+bind "2" command -c sshenc2
+
+# ----------------------------------------------------------------------------------------------------
+# ssh to hosts in enclosure 3
+
+bind -c sshenc3 1 screen -t ssh/d3b1  ssh mtfuser@d3b1
+bind -c sshenc3 2 screen -t ssh/d3b2  ssh mtfuser@d3b2
+bind -c sshenc3 3 screen -t ssh/d3b3  ssh mtfuser@d3b3
+bind -c sshenc3 4 screen -t ssh/d3b4  ssh mtfuser@d3b4
+bind -c sshenc3 6 screen -t ssh/d3b6  ssh mtfuser@d3b6
+bind -c sshenc3 7 screen -t ssh/d3b7  ssh mtfuser@d3b7
+bind -c sshenc3 8 screen -t ssh/d3b8  ssh mtfuser@d3b8
+bind -c sshenc3 9 screen -t ssh/d3b9  ssh mtfuser@d3b9
+bind -c sshenc3 a screen -t ssh/d3b10 ssh mtfuser@d3b10
+bind -c sshenc3 b screen -t ssh/d3b11 ssh mtfuser@d3b11
+bind -c sshenc3 c screen -t ssh/d3b12 ssh mtfuser@d3b12
+bind -c sshenc3 d screen -t ssh/d3b13 ssh mtfuser@d3b13
+bind -c sshenc3 e screen -t ssh/d3b14 ssh mtfuser@d3b14
+bind -c sshenc3 f screen -t ssh/d3b15 ssh mtfuser@d3b15
+bind -c sshenc3 g screen -t ssh/d3b16 ssh mtfuser@d3b16
+bind "3" command -c sshenc3
+
+# --------------------------------------------------------------------------------
+# Function keys to switch between windows.
+# Unfortunately, F10 and above aren't commonly defined by a lot of termcaps.
+
+bindkey -k "k1" select 0
+bindkey -k "k2" select 1
+bindkey -k "k3" select 2
+bindkey -k "k4" select 3
+bindkey -k "k5" select 4
+bindkey -k "k6" select 5
+bindkey -k "k7" select 6
+bindkey -k "k8" select 7
+bindkey -k "k9" select 8
