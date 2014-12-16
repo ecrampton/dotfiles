@@ -189,8 +189,18 @@
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
 
 ; Sourcepair stuff.
-(load "~/dotfiles/lisp/sourcepair.el")
-(define-key global-map "\C-c\C-f" 'sourcepair-load)
+;(load "~/dotfiles/lisp/sourcepair.el")
+;(define-key global-map "\C-c\C-f" 'sourcepair-load)
+
+; File switching.
+(defvar my-cpp-other-file-alist
+  '(("\\.cpp\\'"      (".h"))
+    ("_inline\\.h\\'" (".cpp"))
+    ("\\.h\\'"        ("_inline.h"))))
+
+(setq-default ff-other-file-alist 'my-cpp-other-file-alist)
+
+(define-key global-map "\C-c\C-f" 'ff-find-other-file)
 
 ;; ----------------------------------------------------------------------
 ;; FILE CACHE SETUP
