@@ -136,21 +136,17 @@ function add_software {
 }
 
 add_software bullseye
-add_software conky
 add_software git
 add_software herbstluftwm
 add_software tmux
 add_software apache-maven
-add_software sbt
-add_software scala
 
 export M2_HOME=$HOME/software/apache-maven
 
-if [ -d $HOME/software/dmenu ]; then
-    export PATH=$PATH:$HOME/software/dmenu
-fi
-
-if [ -d /usr/java/latest ]; then
+if [ -h $HOME/software/jdk ]; then
+    export JAVA_HOME=$HOME/software/jdk
+    export PATH=$JAVA_HOME/bin:$PATH
+elif [ -d /usr/java/latest ]; then
     export JAVA_HOME=/usr/java/latest
     export PATH=$JAVA_HOME/bin:$PATH
 fi
