@@ -28,6 +28,21 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # --------------------------------------------------------------------------------
+# Window titles.
+
+case $TERM in
+    xterm*|rxvt)
+        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}\007"'
+        export PROMPT_COMMAND
+        ;;
+    screen*)
+        TITLE=$(hostname -s)                                                      
+        PROMPT_COMMAND='/bin/echo -ne "\033k${TITLE}\033\\"'                      
+        export PROMPT_COMMAND
+        ;;
+esac
+
+# --------------------------------------------------------------------------------
 # Bash history settings.
 
 # Force unsaved history after each prompt.
