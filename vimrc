@@ -16,7 +16,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Bundle 'justmao945/vim-clang'
 Bundle 'ivan-cukic/vim-ctrlp-switcher'
 call vundle#end()
 filetype plugin indent on
@@ -47,3 +46,8 @@ autocmd! bufwritepost .vimrc source %
 au! BufEnter *.cpp let b:fswitchdst = 'h,_inline.h'
 au! BufEnter *.h let b:fswitchdst = '_inline.h,cpp'
 
+" cindent setup
+" N-s: don't indent inside namespaces
+" g0: don't indent C++ scope declarations
+" :0: don't ident cases inside switch
+set cino=N-s,g0,:0
