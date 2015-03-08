@@ -9,6 +9,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Bundle 'bling/vim-airline'
@@ -18,6 +19,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Bundle 'ivan-cukic/vim-ctrlp-switcher'
 Bundle 'derekwyatt/vim-fswitch'
+Plugin 'flazz/vim-colorschemes'
 call vundle#end()
 filetype plugin indent on
 
@@ -25,9 +27,20 @@ filetype plugin indent on
 syntax enable
 set background=dark
 colorscheme solarized
+" others I like: darkburn, southwest-fog, twilight
 
-" Tabs -> spaces, 4 space width, indents
+" Tabs -> spaces, 4 space width, indents, text wrap at 120 characters.
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tw=120
+
+" In gvim, remove all of the GUI widgets
+set guioptions-=m " remove menu bar
+set guioptions-=T " remove toolbar
+set guioptions-=r " remove right-hand scroll bar
+set guioptions-=L " remove left-hand scroll bar
+
+" Relative line numbering
+set relativenumber
 
 " airline modes
 let g:airline#extensions#tabline#enabled = 1
@@ -44,6 +57,7 @@ autocmd! bufwritepost .vimrc source %
 au! BufEnter *.cpp let b:fswitchdst = 'h'
 au! BufEnter *.h let b:fswitchdst = 'h,cpp' | let b:fswitchfnames = '/$/_inline/'
 au! BufEnter *_inline.h let b:fswitchdst = 'cpp' | let b:fswitchfnames = '/_inline$//'
+map <C-c> :FSHere<CR>
 
 " NERDTree setup
 " Close vim if the only window left open is NERDTree.
@@ -59,3 +73,4 @@ set cino=N-s,g0,:0
 
 " airline setup
 set laststatus=2
+
