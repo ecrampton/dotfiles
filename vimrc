@@ -8,6 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'kien/ctrlp.vim'
@@ -70,6 +71,9 @@ map <C-n> :NERDTreeToggle<CR>
 " :0: don't ident cases inside switch
 set cindent
 set cino=N-s,g0,:0
+
+" commentary setup
+autocmd FileType cpp set commentstring=//\ %s
 
 " airline setup
 set laststatus=2
