@@ -21,24 +21,30 @@ Plugin 'honza/vim-snippets'
 Bundle 'ivan-cukic/vim-ctrlp-switcher'
 Bundle 'derekwyatt/vim-fswitch'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Bundle 'nathanaelkane/vim-indent-guides'
 call vundle#end()
 filetype plugin indent on
 
 " Syntax highlighting
 syntax enable
 set background=dark
-colorscheme solarized
-" others I like: darkburn, southwest-fog, twilight
+colorscheme twilight
+" others I like: darkburn, southwest-fog, twilight, chance-of-storm
 
 " Tabs -> spaces, 4 space width, indents, text wrap at 120 characters.
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set tw=120
 
-" In gvim, remove all of the GUI widgets
+" Allow deletion of previously entered stuff in insert mode.
+set backspace=indent,eol,start
+
+" gvim gui setup
 set guioptions-=m " remove menu bar
 set guioptions-=T " remove toolbar
 set guioptions-=r " remove right-hand scroll bar
 set guioptions-=L " remove left-hand scroll bar
+set guicursor=a:blinkon700-blinkoff500
 
 " Relative line numbering
 set relativenumber
@@ -49,6 +55,15 @@ let g:airline#extensions#tabline#enabled = 1
 " Incremental and highlighted searching
 set incsearch
 set hlsearch
+set smartcase
+
+" Remap search keys so that search results appear in the middle of the screen
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
 
 " Re-source vimrc on save.
 autocmd! bufwritepost .vimrc source %
@@ -70,11 +85,14 @@ map <C-n> :NERDTreeToggle<CR>
 " g0: don't indent C++ scope declarations
 " :0: don't ident cases inside switch
 set cindent
-set cino=N-s,g0,:0
+set cino=N-s,g0
 
 " commentary setup
 autocmd FileType cpp set commentstring=//\ %s
 
 " airline setup
 set laststatus=2
+
+" Ignore .o files in places like ctrlp.
+set wildignore+=*.o
 
