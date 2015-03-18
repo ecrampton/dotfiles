@@ -7,24 +7,31 @@ let g:ctrlp_extensions = ['funky','switcher']
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-commentary'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-Bundle 'kien/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
 Bundle 'bling/vim-airline'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Bundle 'ivan-cukic/vim-ctrlp-switcher'
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'derekwyatt/vim-fswitch'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'octol/vim-cpp-enhanced-highlight'
+Bundle 'ivan-cukic/vim-ctrlp-switcher'
+Bundle 'kien/ctrlp.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
+Plugin 'SirVer/ultisnips'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'chrisbra/csv.vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'mileszs/ack.vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'scrooloose/nerdtree'
+Plugin 'sickill/vim-pasta'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vasconcelloslf/vim-interestingwords'
+
 call vundle#end()
 filetype plugin indent on
+
+set runtimepath+=~/dotfiles
 
 " Syntax highlighting
 syntax enable

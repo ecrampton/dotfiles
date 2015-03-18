@@ -1,5 +1,13 @@
 extends c
 
+snippet inc "#include local header (inc)"
+#include "${1:`!p snip.rv = snip.basename + '.h'`}"
+endsnippet
+
+snippet Inc "#include <> (Inc)"
+#include <${1:.h}>
+endsnippet
+
 snippet ns "namespace .. (namespace)"
 namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`} {
 ${VISUAL}${0}
@@ -15,3 +23,8 @@ ${0}
 
 #endif /* $1 */
 endsnippet
+
+snippet tp "template <typename ..> (template)"
+template <typename $1>
+endsnippet
+
