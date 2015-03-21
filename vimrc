@@ -14,6 +14,7 @@ Bundle 'derekwyatt/vim-fswitch'
 Bundle 'ivan-cukic/vim-ctrlp-switcher'
 Bundle 'kien/ctrlp.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'sickill/vim-monokai'
 Plugin 'SirVer/ultisnips'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'chrisbra/csv.vim'
@@ -36,8 +37,9 @@ set runtimepath+=~/dotfiles
 " Syntax highlighting
 syntax enable
 set background=dark
-colorscheme twilight
-" others I like: darkburn, southwest-fog, twilight, chance-of-storm
+colorscheme hybrid
+" others good w/256 color terminal: gruvbox, hybrid, monokai
+" others I like: twilight, darkburn, southwest-fog, twilight, chance-of-storm
 
 " Tabs -> spaces, 4 space width, indents, text wrap at 120 characters.
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
