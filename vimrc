@@ -65,6 +65,7 @@ let g:airline#extensions#tabline#enabled = 1
 " Incremental and highlighted searching
 set incsearch
 set hlsearch
+set ignorecase
 set smartcase
 
 " Remap search keys so that search results appear in the middle of the screen
