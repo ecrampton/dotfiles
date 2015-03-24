@@ -10,6 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'derekwyatt/vim-fswitch'
 Bundle 'ivan-cukic/vim-ctrlp-switcher'
 Bundle 'kien/ctrlp.vim'
