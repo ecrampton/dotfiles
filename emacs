@@ -9,7 +9,44 @@
 
 ; Local Lisp configuration.
 (add-to-list 'load-path "~/dotfiles/lisp")
+(setq yas-snippet-dirs '("~/dotfiles/snippets"))
 
+;; ----------------------------------------------------------------------
+;; PACKAGE MANAGEMENT
+;; ----------------------------------------------------------------------
+
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  (setq esc-packages
+        '(
+          ace-window
+          ack
+          git-gutter+
+          rtags
+          yasnippet
+          ))
+  (when (not package-archive-contents)
+    (package-refresh-contents))
+  (defun esc-install-packages ()
+    (interactive)
+    (progn
+      (dolist (pkg esc-packages)
+        (when (and (not (package-installed-p pkg))
+                   (assoc pkg package-archive-contents))
+          (package-install pkg)))))
+  (defun package-list-unaccounted-packages ()
+    "Like `package-list-packages', but shows only the packages that
+    are installed and are not in `esc-packages'.  Useful for
+    cleaning out unwanted packages."
+    (interactive)
+    (package-show-package-list
+     (remove-if-not (lambda (x) (and (not (memq x esc-packages))
+                                     (not (package-built-in-p x))
+                                     (package-installed-p x)))
+                    (mapcar 'car package-archive-contents)))))
+  
 ;; ----------------------------------------------------------------------
 ;; WHERE AM I?
 ;; ----------------------------------------------------------------------
@@ -21,6 +58,26 @@
 ; At home, I'm 'esc'.
 (defun esc-at-home ()
   (file-directory-p "/home/esc"))
+
+;; ----------------------------------------------------------------------
+;; GIT GUTTER
+;; ----------------------------------------------------------------------
+
+(global-git-gutter+-mode t)
+
+(eval-after-load 'git-gutter+
+  '(progn
+     ; Jump between hunks
+     (define-key git-gutter+-mode-map (kbd "C-x n") 'git-gutter+-next-hunk)
+     (define-key git-gutter+-mode-map (kbd "C-x p") 'git-gutter+-previous-hunk)
+     ))
+
+;; ----------------------------------------------------------------------
+;; SNIPPETS
+;; ----------------------------------------------------------------------
+
+(setq yas-snippet-dirs '("~/dotfiles/snippets"))
+(yas-global-mode 1)
 
 ;; ----------------------------------------------------------------------
 ;; SIMPLE CUSTOMIZATIONS
@@ -241,8 +298,9 @@
 
 ; Only run these if we're running in X11.
 (if (eq window-system 'x)
-    (set-face-font 'default "-*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-*")
-)
+    (when (member "terminus" (font-family-list))
+      (set-face-font 'default "-*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-*"))
+  )
 
 ;; Show trailing whitespace in certain modes.
 (mapc (lambda (mode)
