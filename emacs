@@ -21,8 +21,11 @@
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
   (setq esc-packages
         '(
+          ace-isearch
+          ace-jump-buffer
           ace-window
           ack
+          fiplr
           git-gutter+
           rtags
           yasnippet
@@ -174,6 +177,12 @@
 (global-set-key "\M-r"  'highlight-symbol-prev)
 
 (require 'dedicated)
+
+; fiplr setup
+(global-set-key (kbd "\C-x f") 'fiplr-find-file)
+
+; ace-isearch
+(global-ace-isearch-mode +1)
 
 ;; ----------------------------------------------------------------------
 ;; CC-MODE CUSTOMIZATIONS
