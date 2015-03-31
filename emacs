@@ -92,7 +92,7 @@
     (progn
       (tool-bar-mode 0)
       (menu-bar-mode 0)
-      (scroll-bar-mode nil)))
+      (scroll-bar-mode 0)))
 
 ; We definitely don't need fancy splash screens. These are
 ; particularly slow over a remote connection.
