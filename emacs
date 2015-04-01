@@ -180,6 +180,12 @@
 
 ; fiplr setup
 (global-set-key (kbd "\C-x f") 'fiplr-find-file)
+(setq fiplr-root-markers '("wscript" ".git"))
+(setq fiplr-ignored-globs
+      '((directories
+         (".git" ".svn" ".hg" ".bzr"))
+        (files
+         (".#*" "*~" "*.so" "*.jpg" "*.png" "*.gif" "*.pdf" "*.gz" "*.zip" "*.o"))))
 
 ; ace-isearch
 (global-ace-isearch-mode +1)
