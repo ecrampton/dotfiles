@@ -27,6 +27,7 @@
           ack
           fiplr
           git-gutter+
+          magit
           rtags
           yasnippet
           ))
@@ -140,7 +141,7 @@
 ; Require Auc-TeX. (Too bad I don't get to use LaTeX as much as I used
 ; to.)
 (add-to-list 'load-path "~/software/auctex/site-lisp")
-(require 'tex-site)
+;(require 'tex-site)
 
 ; Switch file
 (require 'switch-file)
@@ -189,6 +190,7 @@
 
 ; ace-isearch
 (global-ace-isearch-mode +1)
+(setq ace-isearch-use-ace-jump nil)
 
 ;; ----------------------------------------------------------------------
 ;; CC-MODE CUSTOMIZATIONS
