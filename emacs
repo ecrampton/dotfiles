@@ -134,6 +134,9 @@
            (global-font-lock-mode t)
            (setq font-lock-maximum-decoration t)))
 
+; I know what I'm doing. Enable narrowing.
+(put 'narrow-to-region 'disabled nil)
+
 ;; ----------------------------------------------------------------------
 ;; ADDITIONAL MODES
 ;; ----------------------------------------------------------------------
@@ -307,11 +310,12 @@
 
 ; Color-theme allows easy setup and selection of different Emacs color
 ; themes.
-(require 'color-theme)
-(require 'zenburn)
-(load "~/dotfiles/lisp/color-theme-subdued.el")
-(color-theme-subdued)
+;(require 'color-theme)
+;(require 'zenburn)
+;(load "~/dotfiles/lisp/color-theme-subdued.el")
+;(color-theme-subdued)
 ;(color-theme-zenburn)
+(load-theme 'gotham)
 
 ; Only run these if we're running in X11.
 (if (eq window-system 'x)
@@ -392,3 +396,17 @@
 ;; ----------------------------------------------------------------------
 ;; CUSTOMIZE VARIABLES
 ;; ----------------------------------------------------------------------
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "bede70e4b2654751936d634040347bb4704fa956ecf7dceab03661a75e46a8ca" "9122dfb203945f6e84b0de66d11a97de6c9edf28b3b5db772472e4beccc6b3c5" "ba9be9caf9aa91eb34cf11ad9e8c61e54db68d2d474f99a52ba7e87097fa27f5" "588b1ec3f63dfbd7ab2ba7eda4b1b6009dd1c8ed6a321fa98c492d8a63f1bba7" "44eec3c3e6e673c0d41b523a67b64c43b6e38f8879a7969f306604dcf908832c" "764e3a6472a3a4821d929cdbd786e759fab6ef6c2081884fca45f1e1e3077d1d" "968c8cf5763708bb86a3f82bb0f8b8d2fe885e693ac8644268738ac2584da292" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
