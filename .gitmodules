@@ -1,0 +1,6 @@
+[submodule "submodules/zsh-git-prompt"]
+	path = submodules/zsh-git-prompt
+	url = https://github.com/olivierverdier/zsh-git-prompt.git
+[submodule "submodules/zsh-syntax-highlighting"]
+	path = submodules/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
