@@ -30,7 +30,7 @@
           gotham-theme
           magit
           rtags
-          subatomic-theme
+          subatomic256-theme
           yasnippet
           ))
   (when (not package-archive-contents)
@@ -148,11 +148,6 @@
 (add-to-list 'load-path "~/software/auctex/site-lisp")
 ;(require 'tex-site)
 
-; Switch file
-(require 'switch-file)
-(add-to-list 'auto-mode-alist '("\\.ipp$" . c++-mode))
-(add-to-list 'switch-major-mode-alist '(c++-mode (".ipp")))
-
 ; WAF
 (setq auto-mode-alist (cons '("wscript" . python-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("wscript_build" . python-mode) auto-mode-alist))
@@ -267,10 +262,6 @@
 ; Treat .h files as C++ code.
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
 
-; Sourcepair stuff.
-;(load "~/dotfiles/lisp/sourcepair.el")
-;(define-key global-map "\C-c\C-f" 'sourcepair-load)
-
 ; File switching.
 (defvar my-cpp-other-file-alist
   '(("\\.cpp\\'"      (".h"))
@@ -311,13 +302,19 @@
 ;; ----------------------------------------------------------------------
 
 ; Setup fonts and themes based on terminal or TTY.
+(custom-set-variables '(gotham-tty-extended-palette t))
+
 (if (eq window-system 'x)
     (progn
+      (tool-bar-mode 0)
+      (menu-bar-mode 0)
+      (scroll-bar-mode 0)
       (load-theme 'gotham t)
       (when (member "terminus" (font-family-list))
         (set-face-font 'default "-*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-*")))
   (progn
-    (load-theme 'subatomic256 t)))
+    (menu-bar-mode 0)
+    (load-theme 'gotham t)))
 
 ;; Show trailing whitespace in certain modes.
 (mapc (lambda (mode)
@@ -392,3 +389,10 @@
 ;; ----------------------------------------------------------------------
 ;; CUSTOMIZE VARIABLES
 ;; ----------------------------------------------------------------------
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

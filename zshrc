@@ -1,5 +1,9 @@
+# -*- sh -*-
+
 autoload -Uz compinit
 autoload -U colors && colors
+
+alias ls='ls --color=auto'
 
 deep_gold="%F{214}"
 jungle_green="%F{151}"
@@ -8,12 +12,9 @@ victory_blue1="%F{109}"
 victory_blue2="%F{111}"
 mystic_blue="%F{60}"
 axiomatic_purple="%F{133}"
-
 PR_RST="%{${reset_color}%}"
-#PS1="%F{227}%n: ${PR_RST}"
-#PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
 
-PS1="${mystic_blue}[%n${victory_blue2}@%m${axiomatic_purple} %~${mystic_blue}]%#${PR_RST} "
+PS1="${mystic_blue}[%n${victory_blue2}@%m${axiomatic_purple} %~${mystic_blue}]${deep_gold}%#${PR_RST} "
 
 source $HOME/dotfiles/submodules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=196'
@@ -29,5 +30,6 @@ setopt appendhistory autocd extendedglob notify
 bindkey -e
 
 zstyle :compinstall filename '/home/ecrampton/.zshrc'
+zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
 compinit
