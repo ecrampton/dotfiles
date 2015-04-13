@@ -9,6 +9,16 @@ if [ -d "$HOME/software/emacs" ]; then
     export PATH=$HOME/software/emacs/bin:$PATH
 fi
 
+# Force use of color.
+case "$TERM" in
+xterm)
+        export TERM=xterm-256color
+        ;;
+screen)
+        export TERM=screen-256color
+        ;;
+esac
+
 autoload -Uz compinit
 autoload -U colors && colors
 
