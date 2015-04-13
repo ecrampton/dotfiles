@@ -1,5 +1,14 @@
 # -*- sh -*-
 
+# TODO: I need bash style backword word delete
+
+# If not running interactively, don't do anything.
+[ -z "$PS1" ] && return
+
+if [ -d "$HOME/software/emacs" ]; then
+    export PATH=$HOME/software/emacs/bin:$PATH
+fi
+
 autoload -Uz compinit
 autoload -U colors && colors
 
