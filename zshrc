@@ -5,8 +5,20 @@
 # If not running interactively, don't do anything.
 [ -z "$PS1" ] && return
 
+if [ -d "$HOME/software/zsh" ]; then
+    export PATH=$HOME/software/zsh/bin:$PATH
+fi
+
 if [ -d "$HOME/software/emacs" ]; then
     export PATH=$HOME/software/emacs/bin:$PATH
+fi
+
+if [ -d "$HOME/software/tmux" ]; then
+    export PATH=$HOME/software/tmux/bin:$PATH
+fi
+
+if [ -d "$HOME/software/vim" ]; then
+    export PATH=$HOME/software/vim/bin:$PATH
 fi
 
 # Force use of color.
