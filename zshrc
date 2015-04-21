@@ -31,6 +31,9 @@ screen)
         ;;
 esac
 
+autoload -U select-word-style
+select-word-style bash
+
 autoload -Uz compinit
 autoload -U colors && colors
 
