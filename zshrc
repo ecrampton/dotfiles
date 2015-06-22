@@ -21,6 +21,16 @@ if [ -d "$HOME/software/vim" ]; then
     export PATH=$HOME/software/vim/bin:$PATH
 fi
 
+if [ -d "/opt/icecream/bin" ]; then
+    export PATH=/opt/icecream/bin:$PATH
+    export ICECC_VERSION=$HOME/a0dfe72293a098191d6964924aa7b4c5.tar.gz
+    export COVFILE=$HOME/cpp/bats.cov
+fi
+
+if [ -d "$HOME/software/bullseye/bin" ]; then
+    export PATH=$HOME/software/bullseye/bin:$PATH
+fi
+
 # Force use of color.
 case "$TERM" in
 xterm)
