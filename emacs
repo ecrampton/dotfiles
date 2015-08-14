@@ -28,9 +28,13 @@
           fiplr
           git-gutter+
           gotham-theme
+          jazz-theme
           magit
+          phoenix-dark-pink-theme
           rtags
+          soft-charcoal-theme
           subatomic256-theme
+          tango-2-theme
           yasnippet
           ))
   (when (not package-archive-contents)
@@ -164,6 +168,8 @@
 (global-set-key [next]     'pager-page-down)
 (global-set-key "\ev"      'pager-page-up)
 (global-set-key [prior]    'pager-page-up)
+
+(global-set-key "\C-j"     'join-line)
 
 ; Some nice functions for finding and displaying information about
 ; faces.
@@ -302,8 +308,6 @@
 ;; ----------------------------------------------------------------------
 
 ; Setup fonts and themes based on terminal or TTY.
-(custom-set-variables '(gotham-tty-extended-palette t))
-
 (if (eq window-system 'x)
     (progn
       (tool-bar-mode 0)
