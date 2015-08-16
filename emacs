@@ -318,7 +318,7 @@
         (set-face-font 'default "-*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-*")))
   (progn
     (menu-bar-mode 0)
-    (load-theme 'gotham t)))
+    (load-theme 'subatomic256 t)))
 
 ;; Show trailing whitespace in certain modes.
 (mapc (lambda (mode)
