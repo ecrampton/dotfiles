@@ -21,6 +21,11 @@ if [ -d "$HOME/software/vim" ]; then
     export PATH=$HOME/software/vim/bin:$PATH
 fi
 
+if [ -d "$HOME/software/jdk" ]; then
+    export PATH=$HOME/software/jdk/bin:$PATH
+    export JAVA_HOME=$HOME/software/jdk
+fi
+
 if [ -d "/opt/icecream/bin" ]; then
     export PATH=/opt/icecream/bin:$PATH
     export ICECC_VERSION=$HOME/a0dfe72293a098191d6964924aa7b4c5.tar.gz
