@@ -80,7 +80,7 @@ zstyle ':vcs_info:*' unstagedstr 'u'
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' actionformats '%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
 zstyle ':vcs_info:*' formats \
-       " ${mystic_blue}[${undergrowth_green}%b${mystic_blue}] ${axiomatic_purple}%c${victory_blue2}%u%m%f"
+       " ${mystic_blue}[${undergrowth_green}%b${mystic_blue}]${axiomatic_purple}%c${victory_blue2}%u%m%f"
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-aheadbehind
 zstyle ':vcs_info:*' enable git
 
