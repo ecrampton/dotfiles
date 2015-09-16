@@ -315,7 +315,9 @@
       (scroll-bar-mode 0)
       (load-theme 'gotham t)
       (when (member "terminus" (font-family-list))
-        (set-face-font 'default "-*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-*")))
+        (set-face-font 'default "-*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-*"))
+      (when (member "Hack" (font-family-list))
+        (set-face-font 'default "-*-Hack-medium-r-normal-*-14-*-*-*-*-*-*-*")))
   (progn
     (menu-bar-mode 0)
     (load-theme 'subatomic256 t)))
