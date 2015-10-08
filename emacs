@@ -267,16 +267,53 @@
 
 ; Treat .h files as C++ code.
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
+;
+;; File switching.
+;;(defvar my-cpp-other-file-alist
+;;  '(("\\.cpp\\'"      (".h"))
+;;    ("_inline\\.h\\'" (".cpp" ".h"))
+;;    ("\\.h\\'"        ("_inline.h" ".cpp"))))
+;
+;(setq cc-other-file-alist
+;  '(("\\.cpp\\'"      (".h"))
+;    ("_inline\\.h\\'" (".cpp" ".h"))
+;    ("\\.h\\'"        ("_inline.h" ".cpp"))))
+;
+;;(setq-default ff-other-file-alist 'my-cpp-other-file-alist)
+;
+;(setq ff-always-try-to-create nil)
+;(define-key global-map "\C-c\C-f" 'ff-find-other-file)
 
-; File switching.
-(defvar my-cpp-other-file-alist
-  '(("\\.cpp\\'"      (".h"))
-    ("_inline\\.h\\'" (".cpp"))
-    ("\\.h\\'"        ("_inline.h"))))
+(defun next-rest (rest)
+  (cond
+   ((string-equal rest ".h") "_inline.h")
+   ((string-equal rest "_inline.h") ".cpp")
+   ((string-equal rest ".cpp") ".h")))
 
-(setq-default ff-other-file-alist 'my-cpp-other-file-alist)
+(defun next-filename (filename)
+  (let ((basename (file-name-base
+                   (nth 0 (split-string filename "_inline"))))
+        (rest (next-rest
+               (if (string-suffix-p "_inline.h" filename)
+                   "_inline.h"
+                 (file-name-extension filename 1)))))
+    (concat (file-name-directory filename) basename rest)))
 
-(define-key global-map "\C-c\C-f" 'ff-find-other-file)
+(defun next-open-file (filename)
+  (when (file-readable-p filename)
+    (switch-to-buffer (find-file filename))
+    (return-from next-open-file t))
+  nil)
+
+(defun next-cpp-file ()
+  (interactive)
+  (let ((filename buffer-file-name))
+    (when (file-readable-p filename)
+      (let ((nextFilename (next-filename filename)))
+        (unless (next-open-file nextFilename)
+          (next-open-file (next-filename nextFilename)))))))
+
+(define-key global-map "\C-c\C-f" 'next-cpp-file)
 
 ;; ----------------------------------------------------------------------
 ;; FILE CACHE SETUP
@@ -341,6 +378,16 @@
 ; For the days when I'm doing C or C++ development.
 (global-set-key "\C-\M-p" 'compile)
 (setq compilation-scroll-output t)
+
+; Correct coloration in the compilation buffer.
+(require 'ansi-color)
+
+(defun colorize-compilation-buffer ()
+  (toggle-read-only)
+  (ansi-color-apply-on-region (point-min) (point-max))
+  (toggle-read-only))
+
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
 ; Make Emacs ask me if I want to exit. I have a tendency to hit C-x
 ; C-c by accident sometimes. When I'm on a machine without this and
