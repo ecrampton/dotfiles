@@ -30,6 +30,10 @@ if [ -d "$HOME/software/activator" ]; then
     export PATH=$HOME/software/activator:$PATH
 fi
 
+if [ -d "$HOME/software/sbt" ]; then
+    export PATH=$HOME/software/sbt/bin:$PATH
+fi
+
 if [ -d "/opt/icecream/bin" ]; then
     export PATH=/opt/icecream/bin:$PATH
     export ICECC_VERSION=$HOME/a0dfe72293a098191d6964924aa7b4c5.tar.gz
@@ -48,6 +52,9 @@ xterm)
     # in all environments I use in all terminals I use.
     export TERM=screen-256color
     ;;
+xterm-256color)
+    export TERM=screen-256color
+    ;;
 screen)
     export TERM=screen-256color
     ;;
@@ -62,6 +69,7 @@ function parse_git_branch {
 }
 
 alias ls='ls --color=auto'
+alias ninja='ninja-build'
 
 deep_gold="%F{214}"
 jungle_green="%F{151}"
@@ -133,6 +141,10 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory autocd extendedglob notify
 bindkey -e
+bindkey ';5D' emacs-backward-word
+bindkey ';5C' emacs-forward-word
+bindkey ';5A' up-line-or-search
+bindkey ';5B' down-line-or-search
 
 zstyle :compinstall filename "$HOME/.zshrc"
 zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'

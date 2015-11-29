@@ -267,6 +267,7 @@
 
 ; Treat .h files as C++ code.
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
+<<<<<<< HEAD
 ;
 ;; File switching.
 ;;(defvar my-cpp-other-file-alist
@@ -314,6 +315,19 @@
           (next-open-file (next-filename nextFilename)))))))
 
 (define-key global-map "\C-c\C-f" 'next-cpp-file)
+=======
+(add-to-list 'auto-mode-alist '("\\.ipp$" . c++-mode))
+
+; File switching.
+(defvar my-cpp-other-file-alist
+  '(("\\.cpp\\'"      (".h"))
+    ("_inline\\.h\\'" (".cpp"))
+    ("\\.h\\'"        ("_inline.h"))))
+
+(setq-default ff-other-file-alist 'my-cpp-other-file-alist)
+
+(define-key global-map "\C-c\C-f" 'ff-find-other-file)
+>>>>>>> d0bb3f2... Fixes for keybindings for control+arrows in zsh and Emacs inside of tmux.
 
 ;; ----------------------------------------------------------------------
 ;; FILE CACHE SETUP
@@ -368,6 +382,12 @@
 ;; ----------------------------------------------------------------------
 ;; KEYBINDINGS
 ;; ----------------------------------------------------------------------
+
+; Emacs inside tmux in some environments requires these mappings.
+(global-set-key "\M-[1;5A" 'backward-paragraph)
+(global-set-key "\M-[1;5B" 'forward-paragraph)
+(global-set-key "\M-[1;5C" 'right-word)
+(global-set-key "\M-[1;5D" 'left-word)
 
 ; Make a goto-line keybinding like in XEmacs.
 (global-set-key "\M-g" 'goto-line)
@@ -449,3 +469,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("f5ef7ddecf161a2951048c204c2c6d9d5be08745b136dce583056ad4b234b861" "b85fc9f122202c71b9884c5aff428eb81b99d25d619ee6fde7f3016e08515f07" "62408b3adcd05f887b6357e5bd9221652984a389e9b015f87bbc596aba62ba48" default))))
