@@ -267,7 +267,8 @@
 
 ; Treat .h files as C++ code.
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
-<<<<<<< HEAD
+(add-to-list 'auto-mode-alist '("\\.ipp$" . c++-mode))
+
 ;
 ;; File switching.
 ;;(defvar my-cpp-other-file-alist
@@ -315,8 +316,6 @@
           (next-open-file (next-filename nextFilename)))))))
 
 (define-key global-map "\C-c\C-f" 'next-cpp-file)
-=======
-(add-to-list 'auto-mode-alist '("\\.ipp$" . c++-mode))
 
 ; File switching.
 (defvar my-cpp-other-file-alist
@@ -327,7 +326,6 @@
 (setq-default ff-other-file-alist 'my-cpp-other-file-alist)
 
 (define-key global-map "\C-c\C-f" 'ff-find-other-file)
->>>>>>> d0bb3f2... Fixes for keybindings for control+arrows in zsh and Emacs inside of tmux.
 
 ;; ----------------------------------------------------------------------
 ;; FILE CACHE SETUP
