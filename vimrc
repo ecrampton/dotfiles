@@ -6,7 +6,7 @@ set t_Co=256
 let g:ctrlp_extensions = ['funky','switcher']
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
@@ -21,15 +21,16 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'chrisbra/csv.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'lyuts/vim-rtags'
 Plugin 'mileszs/ack.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'sickill/vim-pasta'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vasconcelloslf/vim-interestingwords'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on
@@ -69,6 +70,10 @@ set hlsearch
 set ignorecase
 set smartcase
 
+" Go settings
+" Hard tabs, but display them as 4 spaces wide rather than 8
+au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+
 " Remap search keys so that search results appear in the middle of the screen
 nnoremap n nzz
 nnoremap N Nzz
@@ -76,6 +81,7 @@ nnoremap * *zz
 nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
+nnoremap <F3> :set hlsearch!<CR>
 
 " Re-source vimrc on save.
 autocmd! bufwritepost .vimrc source %
@@ -97,7 +103,7 @@ map <C-n> :NERDTreeToggle<CR>
 " g0: don't indent C++ scope declarations
 " :0: don't ident cases inside switch
 set cindent
-set cino=N-s,g0
+set cino=N-s,g0,i0
 
 " commentary setup
 autocmd FileType cpp set commentstring=//\ %s
