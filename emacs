@@ -21,7 +21,6 @@
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
   (setq esc-packages
         '(
-          ace-isearch
           ace-jump-buffer
           ace-window
           ack
@@ -195,8 +194,8 @@
          (".#*" "*~" "*.so" "*.jpg" "*.png" "*.gif" "*.pdf" "*.gz" "*.zip" "*.o"))))
 
 ; ace-isearch
-(global-ace-isearch-mode +1)
-(setq ace-isearch-use-ace-jump nil)
+;(global-ace-isearch-mode +1)
+;(setq ace-isearch-use-ace-jump nil)
 
 ;; ----------------------------------------------------------------------
 ;; CC-MODE CUSTOMIZATIONS

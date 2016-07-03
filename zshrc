@@ -44,6 +44,8 @@ if [ -d "$HOME/software/bullseye/bin" ]; then
     export PATH=$HOME/software/bullseye/bin:$PATH
 fi
 
+export EDITOR="emacs -nw"
+
 # Force use of color.
 case "$TERM" in
 xterm)
@@ -63,10 +65,10 @@ esac
 autoload -U select-word-style
 select-word-style bash
 
-function parse_git_branch {
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-    echo "("${ref#refs/heads/}")"
-}
+#function parse_git_branch {
+#    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+#    echo "("${ref#refs/heads/}")"
+#}
 
 alias ls='ls --color=auto'
 alias ninja='ninja-build'
