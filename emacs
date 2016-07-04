@@ -317,15 +317,15 @@
 
 (define-key global-map "\C-c\C-f" 'next-cpp-file)
 
-; File switching.
-(defvar my-cpp-other-file-alist
-  '(("\\.cpp\\'"      (".h"))
-    ("_inline\\.h\\'" (".cpp"))
-    ("\\.h\\'"        ("_inline.h"))))
-
-(setq-default ff-other-file-alist 'my-cpp-other-file-alist)
-
-(define-key global-map "\C-c\C-f" 'ff-find-other-file)
+;; File switching.
+;(defvar my-cpp-other-file-alist
+;  '(("\\.cpp\\'"      (".h"))
+;    ("_inline\\.h\\'" (".cpp"))
+;    ("\\.h\\'"        ("_inline.h"))))
+;
+;(setq-default ff-other-file-alist 'my-cpp-other-file-alist)
+;
+;(define-key global-map "\C-c\C-f" 'ff-find-other-file)
 
 ;; ----------------------------------------------------------------------
 ;; FILE CACHE SETUP

@@ -5,43 +5,57 @@
 # If not running interactively, don't do anything.
 [ -z "$PS1" ] && return
 
+typeset -U path
+
 if [ -d "$HOME/software/zsh" ]; then
-    export PATH=$HOME/software/zsh/bin:$PATH
+    path+=($HOME/software/zsh/bin)
 fi
 
 if [ -d "$HOME/software/emacs" ]; then
-    export PATH=$HOME/software/emacs/bin:$PATH
+    path+=($HOME/software/emacs/bin)
 fi
 
 if [ -d "$HOME/software/tmux" ]; then
-    export PATH=$HOME/software/tmux/bin:$PATH
+    path+=($HOME/software/tmux/bin)
 fi
 
 if [ -d "$HOME/software/vim" ]; then
-    export PATH=$HOME/software/vim/bin:$PATH
+    path+=($HOME/software/vim/bin)
 fi
 
 if [ -d "$HOME/software/jdk" ]; then
-    export PATH=$HOME/software/jdk/bin:$PATH
+    path+=($HOME/software/jdk/bin)
     export JAVA_HOME=$HOME/software/jdk
 fi
 
-if [ -d "$HOME/software/activator" ]; then
-    export PATH=$HOME/software/activator:$PATH
+if [ -d "/opt/bats/bin" ]; then
+    path[1,0]=/opt/bats/bin
 fi
 
-if [ -d "$HOME/software/sbt" ]; then
-    export PATH=$HOME/software/sbt/bin:$PATH
+if [ -d "/opt/ecn/scripts" ]; then
+    path+=(/opt/ecn/scripts)
+fi
+
+if [ -d "/opt/ecn/bin" ]; then
+    path+=(/opt/ecn/bin)
 fi
 
 if [ -d "/opt/icecream/bin" ]; then
-    export PATH=/opt/icecream/bin:$PATH
-    export ICECC_VERSION=$HOME/a0dfe72293a098191d6964924aa7b4c5.tar.gz
+    path[1,0]=/opt/icecream/bin
+    if [ -f "$HOME/a0dfe72293a098191d6964924aa7b4c5.tar.gz" ]; then
+	export ICECC_VERSION=$HOME/a0dfe72293a098191d6964924aa7b4c5.tar.gz
+    fi
+    if [ -f "$HOME/0a4466389b64717a2788d62ae7538490.tar.gz" ]; then
+	export ICECC_VERSION=$HOME/0a4466389b64717a2788d62ae7538490.tar.gz
+    fi
+    if [ -f "$HOME/c980925405d549748a2ad4f9ad7d2ca6.tar.gz" ]; then
+        export ICECC_VERSION=$HOME/c980925405d549748a2ad4f9ad7d2ca6.tar.gz
+    fi
     export COVFILE=$HOME/cpp/bats.cov
 fi
 
 if [ -d "$HOME/software/bullseye/bin" ]; then
-    export PATH=$HOME/software/bullseye/bin:$PATH
+    path[1,0]=$HOME/software/bullseye/bin
 fi
 
 # Force use of color.
@@ -69,7 +83,8 @@ function parse_git_branch {
 }
 
 alias ls='ls --color=auto'
-alias ninja='ninja-build'
+alias bsql='bsql.sh'
+#alias ninja='ninja-build'
 
 deep_gold="%F{214}"
 jungle_green="%F{151}"
@@ -126,6 +141,7 @@ precmd () { vcs_info }
 
 setopt PROMPT_SUBST
 PS1='${mystic_blue}[%n${victory_blue2}@%m${axiomatic_purple}${vcs_info_msg_0_} ${jungle_green}%~${mystic_blue}]${deep_gold}%#${PR_RST} '
+#export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)") \$ '
 
 source $HOME/dotfiles/submodules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=196'
