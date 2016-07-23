@@ -159,7 +159,7 @@
 (require 'himark)
 
 ; Folding mode lets you selectively show and hide parts of a document.
-(require 'folding)
+; (require 'folding)
 
 ; Better scrolling for Emacs
 (require 'pager)
