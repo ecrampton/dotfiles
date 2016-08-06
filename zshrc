@@ -58,6 +58,15 @@ if [ -d "$HOME/software/bullseye/bin" ]; then
     path[1,0]=$HOME/software/bullseye/bin
 fi
 
+if [ -d "$HOME/go" ]; then
+    export GOPATH=$HOME/go
+    path+=($HOME/go/bin)
+fi
+
+if [ -d "$HOME/software/protobuf-3.0.0" ]; then
+    path+=($HOME/software/protobuf-3.0.0/bin)
+fi
+
 export EDITOR="emacs -nw"
 
 # Force use of color.
