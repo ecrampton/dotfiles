@@ -63,10 +63,7 @@ export EDITOR="emacs -nw"
 # Force use of color.
 case "$TERM" in
 xterm)
-    # Contrary to all documentation, this is wrong and should be
-    # xterm-256color. But it's the only way to get arrow keys working
-    # in all environments I use in all terminals I use.
-    export TERM=screen-256color
+    export TERM=xterm-256color
     ;;
 xterm-256color)
     export TERM=screen-256color
