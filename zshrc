@@ -28,6 +28,11 @@ if [ -d "$HOME/software/jdk" ]; then
     export JAVA_HOME=$HOME/software/jdk
 fi
 
+if [ -d "$HOME/software/bullseye" ]; then
+    path[1,0]=($HOME/software/bullseye/bin)
+    export COVFILE=/tmp/coverage.cov
+fi
+
 if [ -d "/opt/bats/bin" ]; then
     path[1,0]=/opt/bats/bin
 fi
