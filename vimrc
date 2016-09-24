@@ -13,7 +13,7 @@ Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'derekwyatt/vim-fswitch'
 Bundle 'ivan-cukic/vim-ctrlp-switcher'
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'sickill/vim-monokai'
 Plugin 'SirVer/ultisnips'
