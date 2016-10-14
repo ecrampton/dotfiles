@@ -95,7 +95,14 @@ select-word-style bash
 #    echo "("${ref#refs/heads/}")"
 #}
 
-alias ls='ls --color=auto'
+if [ `uname` = "Linux" ]; then
+    alias ls='ls --color=auto'
+fi
+
+if [ `uname` = "FreeBSD" ]; then
+    alias ls='ls -G'
+fi
+
 alias bsql='bsql.sh'
 #alias ninja='ninja-build'
 

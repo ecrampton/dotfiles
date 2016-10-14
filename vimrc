@@ -2,13 +2,15 @@ set nocompatible
 filetype off
 set t_Co=256
 
-" Vundle setup
+" 'switcher' switches between similar files
 let g:ctrlp_extensions = ['funky','switcher']
+
+" Vundle setup
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'derekwyatt/vim-fswitch'
@@ -16,21 +18,24 @@ Bundle 'ivan-cukic/vim-ctrlp-switcher'
 Bundle 'kien/ctrlp.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'sickill/vim-monokai'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+
 Plugin 'SirVer/ultisnips'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'chrisbra/csv.vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'fatih/vim-go'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'mileszs/ack.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
 Plugin 'sickill/vim-pasta'
-Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'vasconcelloslf/vim-interestingwords'
-Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on
@@ -64,11 +69,10 @@ set relativenumber
 " airline modes
 let g:airline#extensions#tabline#enabled = 1
 
-" Incremental and highlighted searching
-set incsearch
-set hlsearch
-set ignorecase
-set smartcase
+set incsearch  " incremental searching
+set hlsearch   " highlight search results
+set ignorecase " ignore case when searching...
+set smartcase  " ...unless differing cases specified
 
 " Go settings
 " Hard tabs, but display them as 4 spaces wide rather than 8
