@@ -7,6 +7,10 @@
 
 typeset -U path
 
+if [ -d "$HOME/software/boost" ]; then
+    export BOOST_ROOT=$HOME/software/boost
+fi
+
 if [ -d "$HOME/software/zsh" ]; then
     path+=($HOME/software/zsh/bin)
 fi
