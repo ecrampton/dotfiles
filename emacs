@@ -9,9 +9,7 @@
 
 ; Local Lisp configuration.
 (add-to-list 'load-path "~/dotfiles/lisp")
-(add-to-list 'load-path "~/go-mode.el")
 (setq yas-snippet-dirs '("~/dotfiles/snippets"))
-(require 'go-mode)
 
 ;; ----------------------------------------------------------------------
 ;; PACKAGE MANAGEMENT
@@ -32,7 +30,6 @@
           jazz-theme
           magit
           phoenix-dark-pink-theme
-          rtags
           soft-charcoal-theme
           subatomic256-theme
           tango-2-theme
