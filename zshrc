@@ -77,6 +77,7 @@ if [ -d "$HOME/software/protobuf-3.0.0" ]; then
 fi
 
 export EDITOR="emacs -nw"
+export BOOST_ROOT=$HOME/software/boost-1.63.0
 
 # Force use of color.
 case "$TERM" in
