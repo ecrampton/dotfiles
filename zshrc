@@ -77,10 +77,8 @@ if [ -d "$HOME/software/protobuf-3.0.0" ]; then
 fi
 
 export EDITOR="emacs -nw"
-export BOOST_ROOT=$HOME/software/boost-1.63.0
-
-export PRISM_ROOT=$HOME/prism/root
-export PRISM_ENVIRONMENT=dev
+export SITKA_ROOT=$HOME/sitka
+export SITKA_ENVIRONMENT=dev
 
 if [ -d $HOME/software/simple-binary-encoding ]; then
     export SBE_HOME=$HOME/software/simple-binary-encoding
