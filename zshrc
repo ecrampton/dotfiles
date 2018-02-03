@@ -9,6 +9,7 @@ typeset -U path
 
 if [ -d "$HOME/software/boost" ]; then
     export BOOST_ROOT=$HOME/software/boost
+    export LD_LIBRARY_PATH=$HOME/software/boost/lib:$LD_LIBRARY_PATH
 fi
 
 if [ -d "$HOME/software/zsh" ]; then
@@ -77,6 +78,10 @@ if [ -d "$HOME/software/protobuf-3.0.0" ]; then
 fi
 
 export EDITOR="emacs -nw"
+<<<<<<< HEAD
+=======
+
+>>>>>>> 55e53b8... Emacs color tweaks
 export SITKA_ROOT=$HOME/sitka
 export SITKA_ENVIRONMENT=dev
 
