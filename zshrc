@@ -78,10 +78,6 @@ if [ -d "$HOME/software/protobuf-3.0.0" ]; then
 fi
 
 export EDITOR="emacs -nw"
-<<<<<<< HEAD
-=======
-
->>>>>>> 55e53b8... Emacs color tweaks
 export SITKA_ROOT=$HOME/sitka
 export SITKA_ENVIRONMENT=dev
 
