@@ -363,6 +363,7 @@
 ;; ----------------------------------------------------------------------
 
 (require 'color-theme-tomorrow)
+(load-theme 'tomorrow-night t)
 
 ; Setup fonts and themes based on terminal or TTY.
 (if (eq window-system 'x)
@@ -370,14 +371,11 @@
       (tool-bar-mode 0)
       (menu-bar-mode 0)
       (scroll-bar-mode 0)
-      (load-theme 'tomorrow-night t)
       (when (member "terminus" (font-family-list))
-        (set-face-font 'default "-*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-*"))
-      (when (member "Hack" (font-family-list))
-        (set-face-font 'default "-*-Hack-medium-r-normal-*-14-*-*-*-*-*-*-*")))
+        (set-face-font 'default "-*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-*")))
   (progn
-    (menu-bar-mode 0)
-    (load-theme 'subatomic256 t)))
+    (tool-bar-mode 0)
+    (menu-bar-mode 0)))
 
 ;; Show trailing whitespace in certain modes.
 (mapc (lambda (mode)
