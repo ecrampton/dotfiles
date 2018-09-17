@@ -434,28 +434,6 @@
 (global-set-key "\C-c\C-u" 'himark-unset)
 
 ;; ----------------------------------------------------------------------
-;; CUSTOM FUNCTIONS I LIKE
-;; ----------------------------------------------------------------------
-
-; Set the execute bit on a file if it has a shebang in the first line.
-(if (< emacs-major-version 22)
-    ; For Emacs earlier than version 22.
-    (add-hook 'after-save-hook
-              '(lambda ()
-                 (progn
-                   (and (save-excursion
-                          (save-restriction
-                            (widen)
-                            (goto-char (point-min))
-                            (save-match-data
-                              (looking-at "^#!"))))
-                        (shell-command (concat "chmod a+x " buffer-file-name))
-                        (message (concat "Saved as script: " buffer-file-name))
-                        ))))
-  ; For Emacs version 22 or later.
-  (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p))
-
-;; ----------------------------------------------------------------------
 ;; ORG MODE
 ;; ----------------------------------------------------------------------
 
