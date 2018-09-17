@@ -139,7 +139,7 @@ ZSH_THEME_GIT_PROMPT_PREFIX="${axiomatic_purple}("
 ZSH_THEME_GIT_PROMPT_SUFFIX="${axiomatic_purple})"
 ZSH_THEME_GIT_PROMPT_SEPARATOR="${axiomatic_purple2}|"
 ZSH_THEME_GIT_PROMPT_BRANCH="${jungle_green}"
-PROMPT='${mystic_blue}[%n${victory_blue2}@%m${axiomatic_purple}:$(git_super_status) ${jungle_green}%~${mystic_blue}]${deep_gold}%#${PR_RST} '
+PROMPT='${mystic_blue}[%n${victory_blue2}@%m${axiomatic_purple} ${jungle_green}%~${mystic_blue}]${deep_gold}%#${PR_RST} '
 
 source $HOME/dotfiles/submodules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=196'
