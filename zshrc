@@ -68,22 +68,13 @@ if [ -d "$HOME/software/bullseye/bin" ]; then
     path[1,0]=$HOME/software/bullseye/bin
 fi
 
-if [ -d "$HOME/go" ]; then
-    export GOPATH=$HOME/go
-    path+=($HOME/go/bin)
+if [ -d "$HOME/.cargo/bin" ]; then
+    path[1,0]=$HOME/.cargo/bin
 fi
 
-if [ -d "$HOME/software/protobuf-3.0.0" ]; then
-    path+=($HOME/software/protobuf-3.0.0/bin)
-fi
-
-export EDITOR="emacs -nw"
+export EDITOR="nvim"
 export SITKA_ROOT=$HOME/sitka
 export SITKA_ENVIRONMENT=dev
-
-if [ -d $HOME/software/simple-binary-encoding ]; then
-    export SBE_HOME=$HOME/software/simple-binary-encoding
-fi
 
 # Force use of color.
 case "$TERM" in
@@ -101,11 +92,6 @@ esac
 autoload -U select-word-style
 select-word-style bash
 
-#function parse_git_branch {
-#    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-#    echo "("${ref#refs/heads/}")"
-#}
-
 if [ `uname` = "Linux" ]; then
     alias ls='ls --color=auto'
 fi
@@ -115,7 +101,6 @@ if [ `uname` = "FreeBSD" ]; then
 fi
 
 alias bsql='bsql.sh'
-#alias ninja='ninja-build'
 
 deep_gold="%F{214}"
 jungle_green="%F{151}"
