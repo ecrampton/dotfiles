@@ -35,6 +35,9 @@ set background=dark
 " spring-night, termschool, elda, elrodeo, ghostbuster, hybrid
 colorscheme ghostbuster
 
+" Better color for paren matching w/ghostbuster
+hi MatchParen cterm=bold ctermfg=23
+
 " Searching
 set ignorecase " ignore case when searching...
 set smartcase  " ...unless differing cases specified
