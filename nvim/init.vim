@@ -31,8 +31,8 @@ set wildignore+=*.o
 set background=dark
 
 " Color scheme from flazz/vim-colorschemes
-" Other schemes I like: jellybeans, maroloccio, moody, moonshine, moss, mustang, nazca,
-" spring-night, termschool, codeschool, elda, elrodeo, ghostbuster, hybrid
+" Other schemes I like: jellybeans, maroloccio, moody, moonshine, moss, mustang, 
+" spring-night, termschool, elda, elrodeo, ghostbuster, hybrid
 colorscheme ghostbuster
 
 " Searching
@@ -49,7 +49,6 @@ nnoremap g# g#zz
 nnoremap <F3> :set hlsearch!<CR>
 
 " Line numbering
-set relativenumber
 set number
 
 " Tabs -> spaces, 4 space width, indents, text wrap at 120 characters.
@@ -82,9 +81,6 @@ autocmd FileType cpp set commentstring=//\ %s
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
-
-" Re-source init.vim on save.
-autocmd! bufwritepost init.vim source %
 
 " Shorten updatetime, this makes the git gutter update faster. This is in milliseconds.
 set updatetime=250
