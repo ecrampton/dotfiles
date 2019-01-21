@@ -85,3 +85,36 @@ endif
 " Shorten updatetime, this makes the git gutter update faster. This is in milliseconds.
 set updatetime=250
 
+" Make navigator use Meta instead of Control. Control-h can have issues, depending on
+" the terminal
+nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <M-\> :TmuxNavigatePrevious<cr>
+
+" Clang formatting
+let g:clang_format#style_options = {
+    \ "BasedOnStyle": "LLVM",
+    \ "IndentWidth": 4,
+    \ "AlignAfterOpenBracket": "DontAlign",
+    \ "AllowShortBlocksOnASingleLine": "true",
+    \ "AllowShortCaseLabelsOnASingleLine": "true",
+    \ "AllowShortFunctionsOnASingleLine": "Inline",
+    \ "AllowShortIfStatementsOnASingleLine": "false",
+    \ "AllowShortLoopsOnASingleLine": "false",
+    \ "BreakBeforeBinaryOperators": "NonAssignment",
+    \ "BreakBeforeBraces": "Custom",
+    \ "BraceWrapping": {
+    \ "    AfterFunction": "true",
+    \ "    BeforeElse": "true",
+    \ },
+    \ "ColumnLimit": 120,
+    \ "FixNamespaceComments": "true",
+    \ "IndentCaseLabels": "true",
+    \ "IndentPPDirectives": "AfterHash",
+    \ "PointerAlignment": "Middle",
+    \ "UseTab": "Never",
+    \ "AccessModifierOffset": -4,
+    \ "AlwaysBreakTemplateDeclarations": "Yes",
+    \ }
