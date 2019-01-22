@@ -30,7 +30,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'mileszs/ack.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 Plugin 'sickill/vim-pasta'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
@@ -95,6 +95,7 @@ autocmd! bufwritepost .vimrc source %
 au! BufEnter *.cpp let b:fswitchdst = 'h'
 au! BufEnter *.h let b:fswitchdst = 'h,cpp' | let b:fswitchfnames = '/$/_inline/'
 au! BufEnter *_inline.h let b:fswitchdst = 'cpp' | let b:fswitchfnames = '/_inline$//'
+
 map <C-c> :FSHere<CR>
 
 " NERDTree setup

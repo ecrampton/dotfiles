@@ -1,0 +1,6 @@
+{
+  "*.ipp": {"alternate": "{}.cpp"},
+  "*.hpp": {"alternate": ["{}.ipp", "{}.cpp"]},
+  "*.cpp": {"alternate": "{}.hpp"}
+}
+
