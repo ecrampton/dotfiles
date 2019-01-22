@@ -56,13 +56,8 @@ fi
 #    path[1,0]=$HOME/software/bullseye/bin
 #fi
 
-if [ -d "$HOME/go" ]; then
-    export GOPATH=$HOME/go
-    path+=($HOME/go/bin)
-fi
-
-if [ -d "$HOME/software/protobuf-3.0.0" ]; then
-    path+=($HOME/software/protobuf-3.0.0/bin)
+if [ -d "$HOME/.cargo/bin" ]; then
+    path[1,0]=$HOME/.cargo/bin
 fi
 
 export 'NINJA_STATUS=[%u/%r/%f] '
@@ -84,14 +79,16 @@ esac
 autoload -U select-word-style
 select-word-style bash
 
-#function parse_git_branch {
-#    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-#    echo "("${ref#refs/heads/}")"
-#}
-
-alias ls='ls --color=auto'
 alias bsql='bsql.sh'
 alias bbut='./bb --use-ib -j1500 --targets=ecn_unit_test_suite'
+
+if [ `uname` = "Linux" ]; then
+    alias ls='ls --color=auto'
+fi
+
+if [ `uname` = "FreeBSD" ]; then
+    alias ls='ls -G'
+fi
 
 deep_gold="%F{214}"
 jungle_green="%F{151}"

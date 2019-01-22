@@ -363,6 +363,7 @@
 ;; ----------------------------------------------------------------------
 
 (require 'color-theme-tomorrow)
+(load-theme 'tomorrow-night t)
 
 ; Setup fonts and themes based on terminal or TTY.
 (if (eq window-system 'x)
@@ -370,14 +371,13 @@
       (tool-bar-mode 0)
       (menu-bar-mode 0)
       (scroll-bar-mode 0)
-      (load-theme 'tomorrow-night t)
       (when (member "terminus" (font-family-list))
-        (set-face-font 'default "-*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-*"))
+        (set-face-font 'default "-*-terminus-medium-r-normal-*-28-*-*-*-*-*-*-*"))
       (when (member "Hack" (font-family-list))
-        (set-face-font 'default "-*-Hack-medium-r-normal-*-14-*-*-*-*-*-*-*")))
+        (set-face-font 'default "-*-Hack-medium-r-normal-*-25-*-*-*-*-*-*-*")))
   (progn
-    (menu-bar-mode 0)
-    (load-theme 'subatomic256 t)))
+    (tool-bar-mode 0)
+    (menu-bar-mode 0)))
 
 ;; Show trailing whitespace in certain modes.
 (mapc (lambda (mode)
@@ -434,28 +434,6 @@
 (global-set-key "\C-c\C-u" 'himark-unset)
 
 ;; ----------------------------------------------------------------------
-;; CUSTOM FUNCTIONS I LIKE
-;; ----------------------------------------------------------------------
-
-; Set the execute bit on a file if it has a shebang in the first line.
-(if (< emacs-major-version 22)
-    ; For Emacs earlier than version 22.
-    (add-hook 'after-save-hook
-              '(lambda ()
-                 (progn
-                   (and (save-excursion
-                          (save-restriction
-                            (widen)
-                            (goto-char (point-min))
-                            (save-match-data
-                              (looking-at "^#!"))))
-                        (shell-command (concat "chmod a+x " buffer-file-name))
-                        (message (concat "Saved as script: " buffer-file-name))
-                        ))))
-  ; For Emacs version 22 or later.
-  (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p))
-
-;; ----------------------------------------------------------------------
 ;; ORG MODE
 ;; ----------------------------------------------------------------------
 
@@ -486,4 +464,3 @@
  '(package-selected-packages
    (quote
     (projectile gruvbox-theme yaml-mode helm-ag ag yasnippet tango-2-theme subatomic256-theme soft-charcoal-theme rtags phoenix-dark-pink-theme git-gutter+ jazz-theme gotham-theme fiplr ack ace-window ace-jump-buffer ace-isearch))))
-

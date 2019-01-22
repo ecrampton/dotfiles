@@ -1,0 +1,25 @@
+{
+    "name": "Tommorow Night",
+    "comment": "Tommorow Night Scheme",
+    "use-theme-colors": false,
+    "foreground-color": "#c5c8c6",
+    "background-color": "#1d1f21",
+    "palette": [
+        "#000000",
+        "#993333",
+        "#828a35",
+        "#bd9341",
+        "#4e6f8b",
+        "#7f6188",
+        "#578b84",
+        "#cccccc",
+        "#000000",
+        "#cc6666",
+        "#b5bd68",
+        "#f0c674",
+        "#81a2be",
+        "#b294bb",
+        "#8abeb7",
+        "#ffffff"
+    ]
+}

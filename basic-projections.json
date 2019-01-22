@@ -1,0 +1,6 @@
+{
+  "*_inline.h": {"alternate": "{}.cpp"},
+  "*.h": {"alternate": ["{}_inline.h", "{}.cpp"]},
+  "*.cpp": {"alternate": "{}.h"}
+}
+
