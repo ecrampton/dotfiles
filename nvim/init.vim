@@ -20,6 +20,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 
 call plug#end()
@@ -58,24 +59,19 @@ set number
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set tw=120
 
-" FSwitch setup
+" I've transitioned away from FSwitch to projectionist. Left here for now.
 " Switch from foo.h -> foo_inline.h -> foo.cpp
-au! BufEnter *.cpp let b:fswitchdst = 'h'
-au! BufEnter *.h let b:fswitchdst = 'h,cpp' | let b:fswitchfnames = '/$/_inline/'
-au! BufEnter *_inline.h let b:fswitchdst = 'cpp' | let b:fswitchfnames = '/_inline$//'
-map <C-c> :FSHere<CR>
-" map <C-c> :A<CR>
+" au! BufEnter *.cpp let b:fswitchdst = 'h'
+" au! BufEnter *.h let b:fswitchdst = 'h,cpp' | let b:fswitchfnames = '/$/_inline/'
+" au! BufEnter *_inline.h let b:fswitchdst = 'cpp' | let b:fswitchfnames = '/_inline$//'
+" map <C-c> :FSHere<CR>
+
+" Projectionist alternate file
+map <C-c> :A<CR>
 
 " Airline
 " let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-
-" cindent setup
-" N-s: don't indent inside namespaces
-" g0: don't indent C++ scope declarations
-" i0: don't indent cases inside switch
-set cindent
-set cino=N-s,g0,i0
 
 " commentary setup
 autocmd FileType cpp set commentstring=//\ %s
@@ -95,6 +91,13 @@ nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <M-\> :TmuxNavigatePrevious<cr>
+
+" cindent setup
+" N-s: don't indent inside namespaces
+" g0: don't indent C++ scope declarations
+" i0: don't indent cases inside switch
+set cindent
+set cino=N-s,g0,i0
 
 " Clang formatting
 let g:clang_format#style_options = {
