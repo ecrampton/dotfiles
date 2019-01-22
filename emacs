@@ -78,7 +78,7 @@
 ;; GIT GUTTER
 ;; ----------------------------------------------------------------------
 
-(global-git-gutter+-mode t)
+(global-git-gutter+-mode)
 
 (eval-after-load 'git-gutter+
   '(progn
@@ -192,10 +192,10 @@
 
 ; fiplr setup
 (global-set-key (kbd "\C-x f") 'fiplr-find-file)
-(setq fiplr-root-markers '("wscript" ".git"))
+(setq fiplr-root-markers '(".git" "bb"))
 (setq fiplr-ignored-globs
       '((directories
-         (".git" ".svn" ".hg" ".bzr"))
+         (".git" ".svn" ".hg" ".bzr" "build"))
         (files
          (".#*" "*~" "*.so" "*.jpg" "*.png" "*.gif" "*.pdf" "*.gz" "*.zip" "*.o"))))
 
@@ -485,4 +485,5 @@
     ("cf08ae4c26cacce2eebff39d129ea0a21c9d7bf70ea9b945588c1c66392578d1" "7f1263c969f04a8e58f9441f4ba4d7fb1302243355cb9faecb55aec878a06ee9" "1157a4055504672be1df1232bed784ba575c60ab44d8e6c7b3800ae76b42f8bd" "858a353233c58b69dbe3a06087fc08905df2d8755a0921ad4c407865f17ab52f" "c39ae5721fce3a07a27a685c08e4b856a13780dbc755a569bb4393c932f226d7" "590759adc4a5bf7a183df81654cce13b96089e026af67d92b5eec658fb3fe22f" "f5ef7ddecf161a2951048c204c2c6d9d5be08745b136dce583056ad4b234b861" "b85fc9f122202c71b9884c5aff428eb81b99d25d619ee6fde7f3016e08515f07" "62408b3adcd05f887b6357e5bd9221652984a389e9b015f87bbc596aba62ba48" default)))
  '(package-selected-packages
    (quote
-    (gruvbox-theme yaml-mode helm-ag ag yasnippet tango-2-theme subatomic256-theme soft-charcoal-theme rtags phoenix-dark-pink-theme magit jazz-theme gotham-theme git-gutter+ fiplr ack ace-window ace-jump-buffer ace-isearch))))
+    (projectile gruvbox-theme yaml-mode helm-ag ag yasnippet tango-2-theme subatomic256-theme soft-charcoal-theme rtags phoenix-dark-pink-theme git-gutter+ jazz-theme gotham-theme fiplr ack ace-window ace-jump-buffer ace-isearch))))
+

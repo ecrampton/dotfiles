@@ -7,17 +7,12 @@
 
 typeset -U path
 
-if [ -d "$HOME/software/boost" ]; then
-    export BOOST_ROOT=$HOME/software/boost
-    export LD_LIBRARY_PATH=$HOME/software/boost/lib:$LD_LIBRARY_PATH
-fi
-
 if [ -d "$HOME/software/zsh" ]; then
     path+=($HOME/software/zsh/bin)
 fi
 
 if [ -d "$HOME/software/emacs" ]; then
-    path+=($HOME/software/emacs/bin)
+    path[1,0]=$HOME/software/emacs/bin
 fi
 
 if [ -d "$HOME/software/tmux" ]; then
@@ -33,11 +28,6 @@ if [ -d "$HOME/software/jdk" ]; then
     export JAVA_HOME=$HOME/software/jdk
 fi
 
-if [ -d "$HOME/software/bullseye" ]; then
-    path[1,0]=($HOME/software/bullseye/bin)
-    export COVFILE=/tmp/coverage.cov
-fi
-
 if [ -d "/opt/bats/bin" ]; then
     path[1,0]=/opt/bats/bin
 fi
@@ -50,23 +40,21 @@ if [ -d "/opt/ecn/bin" ]; then
     path+=(/opt/ecn/bin)
 fi
 
-if [ -d "/opt/icecream/bin" ]; then
-    path[1,0]=/opt/icecream/bin
-    if [ -f "$HOME/a0dfe72293a098191d6964924aa7b4c5.tar.gz" ]; then
-	export ICECC_VERSION=$HOME/a0dfe72293a098191d6964924aa7b4c5.tar.gz
-    fi
-    if [ -f "$HOME/0a4466389b64717a2788d62ae7538490.tar.gz" ]; then
-	export ICECC_VERSION=$HOME/0a4466389b64717a2788d62ae7538490.tar.gz
-    fi
-    if [ -f "$HOME/c980925405d549748a2ad4f9ad7d2ca6.tar.gz" ]; then
-        export ICECC_VERSION=$HOME/c980925405d549748a2ad4f9ad7d2ca6.tar.gz
-    fi
-    export COVFILE=$HOME/cpp/bats.cov
-fi
+#if [ -f "$HOME/icecream/clang" ]; then
+#    path[1,0]=/usr/libexec/icecc/bin
+#    export ICECC_VERSION=$HOME/icecream/8ec23b6b05ddfecafd93f005b8f17b85.tar.gz
+#    export ICECC_CC=/opt/bats/bin/clang
+#    export ICECC_CXX=/opt/bats/bin/clang++
+#    export CC=clang
+#    export CXX=clang++
+#
+#    export COVFILE=$HOME/cpp/bats.cov
+#    export COVAUTOSAVE=0
+#fi
 
-if [ -d "$HOME/software/bullseye/bin" ]; then
-    path[1,0]=$HOME/software/bullseye/bin
-fi
+#if [ -d "$HOME/software/bullseye" ]; then
+#    path[1,0]=$HOME/software/bullseye/bin
+#fi
 
 if [ -d "$HOME/go" ]; then
     export GOPATH=$HOME/go
@@ -77,18 +65,13 @@ if [ -d "$HOME/software/protobuf-3.0.0" ]; then
     path+=($HOME/software/protobuf-3.0.0/bin)
 fi
 
+export 'NINJA_STATUS=[%u/%r/%f] '
 export EDITOR="emacs -nw"
-export SITKA_ROOT=$HOME/sitka
-export SITKA_ENVIRONMENT=dev
-
-if [ -d $HOME/software/simple-binary-encoding ]; then
-    export SBE_HOME=$HOME/software/simple-binary-encoding
-fi
 
 # Force use of color.
 case "$TERM" in
 xterm)
-    export TERM=xterm-256color
+    export TERM=screen-256color
     ;;
 xterm-256color)
     export TERM=screen-256color
@@ -106,16 +89,9 @@ select-word-style bash
 #    echo "("${ref#refs/heads/}")"
 #}
 
-if [ `uname` = "Linux" ]; then
-    alias ls='ls --color=auto'
-fi
-
-if [ `uname` = "FreeBSD" ]; then
-    alias ls='ls -G'
-fi
-
+alias ls='ls --color=auto'
 alias bsql='bsql.sh'
-#alias ninja='ninja-build'
+alias bbut='./bb --use-ib -j1500 --targets=ecn_unit_test_suite'
 
 deep_gold="%F{214}"
 jungle_green="%F{151}"
@@ -134,12 +110,13 @@ PR_RST="%{${reset_color}%}"
 autoload -Uz compinit
 autoload -U colors && colors
 
-source $HOME/dotfiles/submodules/zsh-git-prompt/zshrc.sh
-ZSH_THEME_GIT_PROMPT_PREFIX="${axiomatic_purple}("
-ZSH_THEME_GIT_PROMPT_SUFFIX="${axiomatic_purple})"
-ZSH_THEME_GIT_PROMPT_SEPARATOR="${axiomatic_purple2}|"
-ZSH_THEME_GIT_PROMPT_BRANCH="${jungle_green}"
-PROMPT='${mystic_blue}[%n${victory_blue2}@%m${axiomatic_purple}:$(git_super_status) ${jungle_green}%~${mystic_blue}]${deep_gold}%#${PR_RST} '
+#source $HOME/dotfiles/submodules/zsh-git-prompt/zshrc.sh
+#ZSH_THEME_GIT_PROMPT_PREFIX="${axiomatic_purple}("
+#ZSH_THEME_GIT_PROMPT_SUFFIX="${axiomatic_purple})"
+#ZSH_THEME_GIT_PROMPT_SEPARATOR="${axiomatic_purple2}|"
+#ZSH_THEME_GIT_PROMPT_BRANCH="${jungle_green}"
+#PROMPT='${mystic_blue}[%n${victory_blue2}@%m${axiomatic_purple}:$(git_super_status) ${jungle_green}%~${mystic_blue}]${deep_gold}%#${PR_RST} '
+PROMPT="${mystic_blue}[%n${victory_blue2}@%m${axiomatic_purple}: ${jungle_green}%~${mystic_blue}]${deep_gold}%#${PR_RST} "
 
 source $HOME/dotfiles/submodules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=196'
