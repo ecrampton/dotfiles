@@ -9,9 +9,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'flazz/vim-colorschemes'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rhysd/vim-clang-format'
@@ -55,9 +56,10 @@ nnoremap <F3> :set hlsearch!<CR>
 " Line numbering
 set number
 
-" Tabs -> spaces, 4 space width, indents, text wrap at 120 characters.
+" Tabs -> spaces, 4 space width, indents, text wrap at 120 characters, but turn off wrapping by default
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set tw=120
+set formatoptions-=t
 
 " I've transitioned away from FSwitch to projectionist. Left here for now.
 " Switch from foo.h -> foo_inline.h -> foo.cpp
@@ -80,6 +82,9 @@ autocmd FileType cpp set commentstring=//\ %s
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
+
+" FZF
+map <C-p> :FZF<CR>
 
 " Shorten updatetime, this makes the git gutter update faster. This is in milliseconds.
 set updatetime=250

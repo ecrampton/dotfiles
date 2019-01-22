@@ -61,7 +61,7 @@ if [ -d "$HOME/.cargo/bin" ]; then
 fi
 
 export 'NINJA_STATUS=[%u/%r/%f] '
-export EDITOR="emacs -nw"
+export EDITOR=nvim
 
 # Force use of color.
 case "$TERM" in
@@ -138,3 +138,5 @@ zstyle :compinstall filename "$HOME/.zshrc"
 zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
 compinit
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
