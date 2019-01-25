@@ -57,6 +57,13 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 nnoremap <F3> :set hlsearch!<CR>
 
+" Remap page up/down to be sensible.
+map <PageUp> <C-U>
+map <PageDown> <C-D>
+imap <PageUp> <C-O><C-U>
+imap <PageDown> <C-O><C-D>
+set nostartofline
+
 " Line numbering
 set number
 
