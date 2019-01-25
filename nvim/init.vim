@@ -65,15 +65,16 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set tw=120
 set formatoptions-=t
 
-" I've transitioned away from FSwitch to projectionist. Left here for now.
 " Switch from foo.h -> foo_inline.h -> foo.cpp
-" au! BufEnter *.cpp let b:fswitchdst = 'h'
-" au! BufEnter *.h let b:fswitchdst = 'h,cpp' | let b:fswitchfnames = '/$/_inline/'
-" au! BufEnter *_inline.h let b:fswitchdst = 'cpp' | let b:fswitchfnames = '/_inline$//'
-" map <C-c> :FSHere<CR>
+au! BufEnter *.cpp let b:fswitchdst = 'h'
+au! BufEnter *.h let b:fswitchdst = 'h,cpp' | let b:fswitchfnames = '/$/_inline/'
+au! BufEnter *_inline.h let b:fswitchdst = 'cpp' | let b:fswitchfnames = '/_inline$//'
+map <C-c> :FSHere<CR>
 
 " Projectionist alternate file
-map <C-c> :A<CR>
+" Unfortunately, projectionist doesn't remember where you were in the file when switching back. Until
+" that's fixed, I can't use it.
+" map <C-c> :A<CR>
 
 " Airline
 " let g:airline#extensions#tabline#enabled = 1
