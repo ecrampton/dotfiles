@@ -56,6 +56,7 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 nnoremap <F3> :set hlsearch!<CR>
+nnoremap <M-/> :nohl<CR>
 
 " Remap page up/down to be sensible.
 map <PageUp> <C-U>
