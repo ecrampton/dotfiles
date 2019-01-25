@@ -12,6 +12,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'flazz/vim-colorschemes'
 Plug 'junegunn/fzf.vim'
+Plug 'justinmk/vim-highlightedyank'
 Plug 'mileszs/ack.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rhysd/vim-clang-format'
@@ -43,6 +44,9 @@ colorscheme ghostbuster
 
 " Better color for paren matching w/ghostbuster
 hi MatchParen cterm=bold ctermfg=23
+
+" Yank highlighting
+hi HighlightedyankRegion cterm=reverse
 
 " Searching
 set ignorecase " ignore case when searching...
