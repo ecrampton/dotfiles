@@ -89,6 +89,8 @@ endif
 
 " FZF
 map <C-p> :FZF<CR>
+map <M-p> :Buffers<CR>
+map <C-M-p> :History<CR>
 
 " Shorten updatetime, this makes the git gutter update faster. This is in milliseconds.
 set updatetime=250
