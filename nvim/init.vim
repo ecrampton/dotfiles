@@ -15,6 +15,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-highlightedyank'
 Plug 'mileszs/ack.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'rbgrouleff/bclose.vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -71,6 +72,9 @@ set nostartofline
 
 " Line numbering
 set number
+
+" Automatically rebalance splits if the terminal size changes
+autocmd VimResized * exe "normal \<c-w>="
 
 " Tabs -> spaces, 4 space width, indents, text wrap at 120 characters, but turn off wrapping by default
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
