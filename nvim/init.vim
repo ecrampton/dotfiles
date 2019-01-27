@@ -100,11 +100,6 @@ if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
-" FZF
-map <C-p> :FZF<CR>
-map <M-p> :Buffers<CR>
-map <C-M-p> :History<CR>
-
 " Shorten updatetime, this makes the git gutter update faster. This is in milliseconds.
 set updatetime=250
 
@@ -148,3 +143,33 @@ let g:clang_format#style_options = {
     \ "AccessModifierOffset": -4,
     \ "AlwaysBreakTemplateDeclarations": "Yes",
     \ }
+
+au VimEnter * command! -bang -nargs=* AgDir :call s:Ag(<bang>0, <f-args>)
+function! s:Ag(bang, ...)
+    let terms = []
+    let glob = ''
+    let i = 0
+    while i < a:0
+        let arg = a:000[i]
+        if arg == '-g'
+            let i += 1
+            let glob = '-g '.shellescape(a:000[i])
+        else
+            call add(terms, arg)
+        endif
+        let i += 1
+    endwhile
+    let terms = glob.' '.shellescape(join(terms))
+    call fzf#vim#grep(
+                \ 'rg --column --line-number --no-heading --color=always --smart-case '.terms, 1,  
+                \ a:bang ? fzf#vim#with_preview('up:60%')
+                \ : fzf#vim#with_preview('right:50%:hidden', '?'),
+                \ a:bang)
+endfunction
+
+" FZF
+map <C-p>   :FZF<CR>
+map <M-p>   :Buffers<CR>
+map <C-M-p> :History<CR>
+map <C-r>   :AgDir 
+
