@@ -1,5 +1,3 @@
-" Reload without restarting with :so %
-
 if &compatible
   set nocompatible
 endif
@@ -176,4 +174,6 @@ map <C-p>   :FZF<CR>
 map <M-p>   :Buffers<CR>
 map <C-M-p> :History<CR>
 map <C-r>   :AgDir 
+
+nnoremap <leader>p :call fzf#vim#files('.', {'options':'--query '.expand('<cWORD>')})<CR>
 
