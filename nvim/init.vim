@@ -15,6 +15,7 @@ Plug 'mileszs/ack.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'rhysd/vim-clang-format'
+Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
@@ -176,4 +177,7 @@ map <C-M-p> :History<CR>
 map <C-r>   :AgDir 
 
 nnoremap <leader>p :call fzf#vim#files('.', {'options':'--query '.expand('<cWORD>')})<CR>
+
+" Rust
+let g:rustfmt_autosave = 1
 
