@@ -23,7 +23,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
-
+ 
 " Only include this if the OS doesn't have fzf installed by the package manager.
 if !executable('/usr/bin/fzf')
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -133,6 +133,7 @@ let g:clang_format#style_options = {
     \ "AllowShortLoopsOnASingleLine": "false",
     \ "BreakBeforeBinaryOperators": "NonAssignment",
     \ "BreakBeforeBraces": "Custom",
+    \ "BreakConstructorInitializers": "BeforeComma",
     \ "BraceWrapping": {
     \ "    AfterFunction": "true",
     \ "    BeforeElse": "true",
