@@ -121,6 +121,9 @@ nnoremap <silent> <M-\> :TmuxNavigatePrevious<cr>
 set cindent
 set cino=N-s,g0,i0
 
+" Don't continue comments onto the next line when hitting enter.
+set formatoptions-=cro
+
 " Clang formatting
 let g:clang_format#style_options = {
     \ "BasedOnStyle": "LLVM",
