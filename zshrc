@@ -60,6 +60,10 @@ if [ -d "$HOME/.cargo/bin" ]; then
     path[1,0]=$HOME/.cargo/bin
 fi
 
+if [ -x `which fd` ]; then
+    export FZF_DEFAULT_COMMAND='fd --type f'
+fi
+
 export 'NINJA_STATUS=[%u/%r/%f] '
 export EDITOR=nvim
 
