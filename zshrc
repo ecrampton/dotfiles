@@ -48,13 +48,13 @@ fi
 #    export CC=clang
 #    export CXX=clang++
 #
-#    export COVFILE=$HOME/cpp/bats.cov
-#    export COVAUTOSAVE=0
 #fi
 
-#if [ -d "$HOME/software/bullseye" ]; then
-#    path[1,0]=$HOME/software/bullseye/bin
-#fi
+if [ -d "$HOME/software/bullseye" ]; then
+    path[1,0]=$HOME/software/bullseye/bin
+    export COVFILE=$HOME/cpp/bats.cov
+    export COVAUTOSAVE=0
+fi
 
 if [ -d "$HOME/.cargo/bin" ]; then
     path[1,0]=$HOME/.cargo/bin
@@ -85,6 +85,7 @@ select-word-style bash
 
 alias bsql='bsql.sh'
 alias bbut='./bb --use-ib -j1500 --targets=ecn_unit_test_suite'
+alias qbbut='./bb --use-ib -j1500 --targets=ecn_unit_test_suite'
 
 if [ `uname` = "Linux" ]; then
     alias ls='ls --color=auto'

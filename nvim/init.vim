@@ -185,3 +185,6 @@ nnoremap <leader>p :call fzf#vim#files('.', {'options':'--query '.expand('<cWORD
 " Rust
 let g:rustfmt_autosave = 1
 
+" Git Gutter
+let g:gitgutter_max_signs=2000
+
