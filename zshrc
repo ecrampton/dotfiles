@@ -60,7 +60,7 @@ if [ -d "$HOME/.cargo/bin" ]; then
     path[1,0]=$HOME/.cargo/bin
 fi
 
-if [ -x `which fd` ]; then
+if [[ -x $(whence -p fd) ]]; then
     export FZF_DEFAULT_COMMAND='fd --type f'
 fi
 
